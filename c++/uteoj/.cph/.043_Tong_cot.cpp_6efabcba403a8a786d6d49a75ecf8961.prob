@@ -1,0 +1,1 @@
+{"name":"Local: 043_Tong_cot","url":"c:\\Project\\VS\\myCode\\uteoj\\043_Tong_cot.cpp","tests":[{"id":1729259335099,"input":"3 4 \n1 -2 3 2 \n4 -5 9 0 \n3 3 2 -2 ","output":"8 -4 14 0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Project\\VS\\myCode\\uteoj\\043_Tong_cot.cpp","group":"local","local":true}

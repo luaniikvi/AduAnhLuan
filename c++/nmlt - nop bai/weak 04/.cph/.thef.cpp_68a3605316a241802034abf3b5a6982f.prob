@@ -1,0 +1,1 @@
+{"name":"Local: thef","url":"c:\\Project\\VS\\nmlt\\weak 04\\thef.cpp","tests":[{"id":1728665265892,"input":"6 1 2 3 4 5 6","output":"30"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Project\\VS\\nmlt\\weak 04\\thef.cpp","group":"local","local":true}
