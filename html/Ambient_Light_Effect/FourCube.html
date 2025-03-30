@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambient Light Effects</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(circle, #050505, #000000);
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cube {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      animation: animate 6s linear infinite;
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotateX(-30deg) rotateY(0deg);
+      }
+      100% {
+        transform: rotateX(-30deg) rotateY(360deg);
+      }
+    }
+
+    .cube div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .cube div span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#f9f9f9, var(--color));
+      transform: rotateY(calc(90deg * var(--i))) translateZ(100px);
+    }
+
+    .top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background: #fbf9f9;
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background: var(--glow);
+      transform: translateZ(-250px);
+      filter: blur(20px);
+      box-shadow: 0 0 100px rgba(246, 143, 0, 0.2),
+                  0 0 150px rgba(246, 143, 0, 0.4),
+                  0 0 200px rgba(246, 143, 0, 0.6),
+                  0 0 250px rgba(246, 143, 0, 0.8);
+    }
+
+    .cube-wrapper {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cube-wrapper:nth-child(1) {
+      transform: translate(-200px, -200px);
+      --color: #ff007f;
+      --glow: #ff007f;
+    }
+
+    .cube-wrapper:nth-child(2) {
+      transform: translate(200px, -200px);
+      --color: #00ffff;
+      --glow: #00ffff;
+    }
+
+    .cube-wrapper:nth-child(3) {
+      transform: translate(200px, 150px);
+      --color: #7fff00;
+      --glow: #7fff00;
+    }
+
+    .cube-wrapper:nth-child(4) {
+      transform: translate(-200px, 150px);
+      --color: #ff8c00;
+      --glow: #ff8c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cube-wrapper">
+      <div class="cube">
+        <div class="top"></div>
+        <div>
+          <span style="--i:0;"></span>
+          <span style="--i:1;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:3;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="cube-wrapper">
+      <div class="cube">
+        <div class="top"></div>
+        <div>
+          <span style="--i:0;"></span>
+          <span style="--i:1;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:3;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="cube-wrapper">
+      <div class="cube">
+        <div class="top"></div>
+        <div>
+          <span style="--i:0;"></span>
+          <span style="--i:1;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:3;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="cube-wrapper">
+      <div class="cube">
+        <div class="top"></div>
+        <div>
+          <span style="--i:0;"></span>
+          <span style="--i:1;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:3;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
