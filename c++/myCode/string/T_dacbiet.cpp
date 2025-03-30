@@ -50,6 +50,7 @@ int c_nearPalin(string s)
 int main()
 {
     string s = "aabbcc";
+    // ??? du ma m git
     cout << c_nearPalin(s);
 
     return 0;
