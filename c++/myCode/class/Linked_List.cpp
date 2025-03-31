@@ -14,7 +14,6 @@ struct  Node
 
 void printL(Node *ll)
 {
-    //if(ll == 0) return;
     while(ll->next)
     {
         cout << ll->data << ' ';
@@ -37,6 +36,23 @@ Node *insert_head(Node *a, int head)
     temp->next = a;
     return temp;    
 }
+void deleteNode(Node *a, int val)
+{
+    while (a->next)
+    {
+        if(a->next->data == val) {
+            a->next = a->next->next;
+                return;
+        }
+        a = a->next;
+    }
+    if(a->next->data == val)
+    {
+        a->next == NULL;
+    }
+    
+    return;
+}
 int main()
 {
     Node *a = nullptr;
@@ -44,8 +60,8 @@ int main()
     {
         a = insert_head(a,i+1);
     }
-    printL(*&*&*&*&*&*&*&*&*&*&*a);
-    cout << endl;
+    deleteNode(a,4);
     printL(a);
+    cout << endl;
     return 0;
 }
