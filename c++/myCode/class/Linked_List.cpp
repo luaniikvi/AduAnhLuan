@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-struct  Node
+struct Node
 {
     int data;
     Node *next;
@@ -25,13 +25,12 @@ void printL(Node a)
     cout << a.data;
     return;
 }
-Node *insert_head(Node *a, int head)
+Node* insert_head(Node *a, int head)
 {
-    if(a == nullptr){
+    if(a == NULL){
         a = new Node(head);
         return a;
     }
-
     Node *temp = new Node(head);
     temp->next = a;
     return temp;    
@@ -53,6 +52,21 @@ void deleteNode(Node *a, int val)
     
     return;
 }
+void insert_tail(Node *a,int tail)
+{
+    if(a == NULL)
+    {
+        a = new Node(tail);
+        return;
+    }
+    while(a->next != NULL)
+    {
+        a = a->next;
+    }
+    Node *temp = new Node(tail);
+    a->next = temp;
+    return;
+}
 int main()
 {
     Node *a = nullptr;
@@ -60,8 +74,10 @@ int main()
     {
         a = insert_head(a,i+1);
     }
+    insert_tail(a,100);
     deleteNode(a,4);
-    printL(a);
+    printL(*&*&*&*&*&*&*&*&*&*a);
     cout << endl;
+    printL(a);
     return 0;
 }
