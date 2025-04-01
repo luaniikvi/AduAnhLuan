@@ -35,6 +35,7 @@ Node* insert_head(Node *a, int head)
     temp->next = a;
     return temp;    
 }
+
 void deleteNode(Node *a, int val)
 {
     while (a->next)
@@ -76,8 +77,6 @@ int main()
     }
     insert_tail(a,100);
     deleteNode(a,4);
-    printL(*&*&*&*&*&*&*&*&*&*a);
-    cout << endl;
     printL(a);
     return 0;
 }
