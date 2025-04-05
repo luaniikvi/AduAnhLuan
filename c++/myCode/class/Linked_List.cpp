@@ -14,26 +14,21 @@ struct Node
 
 void printL(Node *ll)
 {
-    while(ll->next)
+    while(ll)
     {
         cout << ll->data << ' ';
         ll = ll->next;
-    } cout << ll->data;
+    }
 }
-void printL(Node a)
-{
-    cout << a.data;
-    return;
-}
-Node* insert_head(Node *a, int head)
+void insert_head(Node* &a, int head)
 {
     if(a == NULL){
         a = new Node(head);
-        return a;
+        return;
     }
     Node *temp = new Node(head);
     temp->next = a;
-    return temp;    
+    a = temp;    
 }
 
 void deleteNode(Node *a, int val)
@@ -68,15 +63,78 @@ void insert_tail(Node *a,int tail)
     a->next = temp;
     return;
 }
+
+void sortList(Node* &head) {
+    if (head == NULL || head->next == NULL) return;
+    
+    bool swapped;
+    Node* ptr1;
+    Node* lptr = NULL;
+    
+    do {
+        swapped = false;
+        ptr1 = head;
+        
+        while (ptr1->next != lptr) {
+            if (ptr1->data > ptr1->next->data) {
+                // Swap the data
+                int temp = ptr1->data;
+                ptr1->data = ptr1->next->data;
+                ptr1->next->data = temp;
+                swapped = true;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    } while (swapped);
+}
+
+void sortListDescending(Node* &head) {
+    if (head == NULL || head->next == NULL) return;
+    
+    bool swapped;
+    Node* ptr1;
+    Node* lptr = NULL;
+    
+    do {
+        swapped = false;
+        ptr1 = head;
+        
+        while (ptr1->next != lptr) {
+            if (ptr1->data < ptr1->next->data) {  // Changed > to < for descending order
+                // Swap the data
+                int temp = ptr1->data;
+                ptr1->data = ptr1->next->data;
+                ptr1->next->data = temp;
+                swapped = true;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    } while (swapped);
+}
+
 int main()
 {
     Node *a = nullptr;
     for(int i=0 ; i< 10 ; i++)
     {
-        a = insert_head(a,i+1);
+        insert_head(a,i+1);
     }
     insert_tail(a,100);
-    deleteNode(a,4);
+    cout << "Original list: ";
     printL(a);
+    cout << endl;
+    
+    sortList(a);
+    cout << "Ascending order: ";
+    printL(a);
+    cout << endl;
+    
+    sortListDescending(a);
+    cout << "Descending order: ";
+    printL(a);
+    cout << endl;
+    
     return 0;
 }
