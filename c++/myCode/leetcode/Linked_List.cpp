@@ -3,20 +3,17 @@ using namespace std;
 
 struct Node
 {
-    int data;
+    int val;
     Node *next;
-    Node(){};
-    Node(int val){
-        this->data = val;
-        this->next = NULL;
-    }
+    Node(): val(0) , next(NULL){}
+    Node(int x):  val(x), next(NULL){}
 };
 
 void printL(Node *ll)
 {
     while(ll)
     {
-        cout << ll->data << ' ';
+        cout << ll->val << ' ';
         ll = ll->next;
     }
 }
@@ -35,20 +32,20 @@ void deleteNode(Node *a, int val)
 {
     while (a->next)
     {
-        if(a->next->data == val) {
+        if(a->next->val == val) {
             a->next = a->next->next;
                 return;
         }
         a = a->next;
     }
-    if(a->next->data == val)
+    if(a->next->val == val)
     {
         a->next == NULL;
     }
     
     return;
 }
-void insert_tail(Node*& a,int tail)
+Node* insert_tail(Node* a,int tail)
 {
     if(a == NULL)
     {
@@ -59,7 +56,7 @@ void insert_tail(Node*& a,int tail)
     while(a->next != NULL)
         a = a->next;
     a->next = new Node(tail);
-    a = head;
+    return head;
 }
 
 void sortList(Node* &head) {
@@ -74,11 +71,11 @@ void sortList(Node* &head) {
         ptr1 = head;
         
         while (ptr1->next != lptr) {
-            if (ptr1->data > ptr1->next->data) {
-                // Swap the data
-                int temp = ptr1->data;
-                ptr1->data = ptr1->next->data;
-                ptr1->next->data = temp;
+            if (ptr1->val > ptr1->next->val) {
+                // Swap the val
+                int temp = ptr1->val;
+                ptr1->val = ptr1->next->val;
+                ptr1->next->val = temp;
                 swapped = true;
             }
             ptr1 = ptr1->next;
@@ -99,11 +96,11 @@ void sortListDescending(Node* &head) {
         ptr1 = head;
         
         while (ptr1->next != lptr) {
-            if (ptr1->data < ptr1->next->data) {  // Changed > to < for descending order
-                // Swap the data
-                int temp = ptr1->data;
-                ptr1->data = ptr1->next->data;
-                ptr1->next->data = temp;
+            if (ptr1->val < ptr1->next->val) {  // Changed > to < for descending order
+                // Swap the val
+                int temp = ptr1->val;
+                ptr1->val = ptr1->next->val;
+                ptr1->next->val = temp;
                 swapped = true;
             }
             ptr1 = ptr1->next;
