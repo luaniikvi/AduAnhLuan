@@ -108,14 +108,3 @@ void sortListDescending(Node* &head) {
         lptr = ptr1;
     } while (swapped);
 }
-
-int main()
-{
-    Node *a = __null;
-    for(int i= 1 ; i<=3; i++)
-        insert_tail(a,i);
-
-    printL(a);
-    
-    return 0;
-}
