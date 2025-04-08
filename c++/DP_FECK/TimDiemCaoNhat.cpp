@@ -7,8 +7,7 @@ using namespace std;
 int d[25];
 int dp[25][25];
 
-bool valid(int i , int len)
-{
+bool valid(int i , int len){
     return (len <= i && len >= i/2);
 }
 
