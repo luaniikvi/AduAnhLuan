@@ -13,13 +13,13 @@ class Bool
     Bool(){}
 
     // or
-    Bool operator|| (Bool b)
+    Bool operator| (Bool b)
     {
         return (this->value || b.value);
     }
 
     // and
-    Bool operator&&(Bool b)
+    Bool operator&(Bool b)
     {
         return (this->value && b.value);
     }
@@ -69,21 +69,17 @@ class Bool
 int main()
 {
     bool list[]={1,0};
-    Bool res1,res2,res3;
-    // p -> q
-    // !p || q
+    string text = "(p->q)^r";
+    cout << "p    q    r    " << text << endl;
     for(Bool p : list)
         for(Bool q : list)
         {
-            res1 = ((p-q) && q ) ;
-            res2 = ((p-q) && q )- (p);
-            cout << "p: "<< p << "    q: " << q;
-            cout << "    res1: "  << res1;
-            cout << "    res2: "  << res2;
-            //cout << "    res3: "  << res3;
-
-            cout << endl;
+            for(Bool r : list)
+            {
+                Bool res = (p-q)^r;
+                cout << p << "    " << q << "    " << r << "       " << res;
+                cout << endl;
+            }
         }
-
     return 0;
 }

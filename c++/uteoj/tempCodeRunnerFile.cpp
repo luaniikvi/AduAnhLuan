@@ -1,2 +1,1 @@
-
-    long long int cost = 0;
+15
