@@ -22,26 +22,38 @@ public:
         int ucln = __gcd(this->tu,this->mau);
         this->tu /=ucln;
         this->mau /=ucln;
+        return *this;
     }
 
     friend ostream& operator<< (ostream& os , phanso a)
     {
+        if(a.mau == 1){
+            os << a.tu;
+            return os;
+        }
         os << a.tu << '/' << a.mau;
         return os;
+    }
+    friend istream& operator>> (istream& is, phanso& a)
+    {
+        cin >> a.tu >> a.mau;
+        return is;
     }
 };
 
 int main()
 {
-    phanso list[100];
+    //phanso list[100];
+    cout << "Nhap so luong phan so muon cong: ";
     int n;cin >> n;
 
     phanso sum(0);
 
     while (n--)
     {
-        int tu,mau; cin >> tu >> mau;
-        sum = sum+phanso(tu,mau);
+        phanso ps;
+        cin >> ps;
+        sum = sum+ps;
     }
     
     cout << sum;
