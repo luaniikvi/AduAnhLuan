@@ -7,19 +7,20 @@ using namespace std;
 int n; // Số đỉnh
 int s = 0; // Đỉnh bắt đầu
 vi d;  // Đường đi ngắn nhất từ đỉnh S đến i
-vi trc;
+vi truoc;
 vvi MaTranTrongSo;
 void Start();
 int w(int i, int j);
 int compare(int sum);
 void format(int a);
+void PrintPath(int e);
 vi Delete(vi a, int val);
 void Dijstra(){
     vi V(n); for(int i=0 ; i<n ;i++) V[i] = i;
     for(auto v : V)
     {
         d[v] = w(s,v);
-        trc[v] = s;
+        truoc[v] = s;
     }
     d[s] = 0;
     vi T = Delete(V,s);
@@ -35,13 +36,12 @@ void Dijstra(){
             }
         }
         T = Delete(T,u);
-
         for(auto v : T)
         {
             int f = compare(d[u] + w(u,v));
             if(d[v] > f){
                 d[v] = d[u] + w(u,v);
-                trc[v] = u;
+                truoc[v] = u;
             }
         }
     }
@@ -53,19 +53,19 @@ int main()
     for(int i=1 ; i<n ; i++)
     {
         cout << "d["<<i<<"]: "; format(d[i]);
+        PrintPath(i);
         cout << endl;
     }
-    cout << "//inf: kh tồn tại đường đi";
+    // cout << "//inf: kh tồn tại đường đi";
     return 0;
 }
-
 void Start(){
     freopen("bai3.inp", "r", stdin);
     freopen("task.out", "w", stdout);
 
     cin >> n;
     d.resize(n);
-    trc.resize(n);
+    truoc.resize(n);
     vvi temp(n,vi(n));
     for(auto &row : temp)
         for(auto &col : row)
@@ -84,8 +84,21 @@ int compare(int sum){
     return min(sum,inf);
 }
 void format(int a){
-    if(a == inf) cout << "inf";
-    else cout << a;
+    if(a == inf) cout << "inf ";
+    else cout << a << ' ';
+}
+void PrintPath(int e)
+{
+    if(d[e] == inf) return;
+    vi paths;
+    while(truoc[e] != s)
+    {
+        paths.push_back(e);
+        e = truoc[e];
+    }
+    cout << s << "->" << e;
+    for(int i=paths.size()-1 ; i>=0 ; i--)
+        cout << "->" << paths[i];
 }
 vi Delete(vi a, int val){
     vi del;
