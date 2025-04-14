@@ -68,6 +68,7 @@ class Bool
 
 int main()
 {
+    freopen("task.out", "w", stdout);
     bool list[]={1,0};
     string text = "(p->q)^r";
     cout << "p    q    r    " << text << endl;
