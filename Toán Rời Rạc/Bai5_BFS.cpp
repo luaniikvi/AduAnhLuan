@@ -71,15 +71,13 @@ int main()
     cout << T;
 }
 
-
-
 vi Ke(int v)
 {
     vi _ke;
     for(int i=0 ; i<n ; i++)
     {
         if(i == v) continue;
-        if(MaTranKe[i][v] == 1) 
+        if(MaTranKe[i][v] >= 1)
             _ke.push_back(i);
     }
     return _ke;
