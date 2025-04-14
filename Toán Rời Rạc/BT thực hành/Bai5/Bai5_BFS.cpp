@@ -4,7 +4,7 @@
 #include<queue>
 using namespace std;
 #define vvi vector<vector<int>> // mảng 2 chiều cho ma trận trọng số
-#define vi vector<int>          //  mảng 1 chiều
+#define vi vector<int>          // mảng 1 chiều
 int n;                          // số đỉnh
 vvi MaTranKe;                   // ma trận kề
 vi d;                           // độ dài đường đi (từ đỉnh S)
@@ -48,7 +48,7 @@ struct Tree{
 };
 Tree T;
 void Tree_BFS(int r){
-    queue<int> que; 
+    queue<int> que; // tạo hàng chờ
     que.push(r);
     ChuaXet[r] = 0;
     while(!que.empty())
