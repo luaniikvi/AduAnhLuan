@@ -1,24 +1,20 @@
 #include<iostream>
 using namespace std;
 
-class Bool
+struct Bool
 {
-    public:
     bool value = 0;
     //set value
-    Bool(bool x)
-    {
-        this->value = x;
-    }
+    Bool(bool x): value(x){};
     Bool(){}
 
-    // or
+    // hay or
     Bool operator| (Bool b)
     {
         return (this->value || b.value);
     }
 
-    // and
+    //  va and
     Bool operator&(Bool b)
     {
         return (this->value && b.value);
@@ -70,14 +66,14 @@ int main()
 {
     freopen("task.out", "w", stdout);
     bool list[]={1,0};
-    string text = "(p->q)^r";
-    cout << "p    q    r    " << text << endl;
+    string debai = "(p->q)^r";
+    cout << "p    q    r    " << debai << endl;
     for(Bool p : list)
         for(Bool q : list)
         {
             for(Bool r : list)
             {
-                Bool res = (p-q)^r;
+                Bool res = (p-q)^r; //De bai
                 cout << p << "    " << q << "    " << r << "       " << res;
                 cout << endl;
             }

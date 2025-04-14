@@ -1,7 +1,7 @@
 #include <iostream>
 #include<vector>
-#define vvi vector<vector<int>>
-#define vi  vector<int>
+#define vvi vector<vector<int>> // mảng 2 chiều
+#define vi  vector<int>         // mảng 1 chiều
 #define inf 100000
 using namespace std;
 int n; // Số đỉnh
@@ -16,17 +16,24 @@ void format(int a);
 void PrintPath(int e);
 vi Delete(vi a, int val);
 void Dijstra(){
+    // Tạo mảng V chứa tất cả các đỉnh của đồ thị
     vi V(n); for(int i=0 ; i<n ;i++) V[i] = i;
+    // khởi tạo các giá trị theo thuật toán
     for(auto v : V)
     {
         d[v] = w(s,v);
         truoc[v] = s;
     }
     d[s] = 0;
-    vi T = Delete(V,s);
+    vi T = Delete(V,s); // T = V\{s}
+
+    // khi T != rỗng
     while(!T.empty())
     {
-        int u,min_dz = inf;
+        // tìm u thuộc T sao cho d[u] = min{ d[z] | z thuộc T}
+        // ->đơn giản là tìm u thuộc T sao cho d[u] bé nhất
+        int u;
+        int min_dz = inf;
         for(int z : T)
         {
             if(d[z] <= min_dz)
@@ -35,7 +42,7 @@ void Dijstra(){
                 min_dz = d[z];
             }
         }
-        T = Delete(T,u);
+        T = Delete(T,u); // xóa {u} ra khỏi T
         for(auto v : T)
         {
             int f = compare(d[u] + w(u,v));
@@ -48,12 +55,12 @@ void Dijstra(){
 }
 int main()
 {
-    Start();
+    Start(); // lấy giá trị từ file
     Dijstra();
     for(int i=1 ; i<n ; i++)
     {
         cout << "d["<<i<<"]: "; format(d[i]);
-        PrintPath(i);
+        PrintPath(i);// in ra đường đi
         cout << endl;
     }
     // cout << "//inf: kh tồn tại đường đi";

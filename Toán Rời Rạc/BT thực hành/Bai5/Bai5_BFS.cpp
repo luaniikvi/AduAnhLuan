@@ -10,13 +10,12 @@ vvi MaTranKe;                   // ma trận kề
 vi d;                           // độ dài đường đi (từ đỉnh S)
 vi ChuaXet;                     // đánh dấu các đỉnh
 vi V;                           // các đỉnh
-int root = 0;                    
+int root = 0;                   // vị trí bắt đầu 
 vi Ke(int v);
 void Start();
-struct Path // đường đi
+struct Path // đường đi (có hướng)
 {
     vi _direction;
-    int _len = 0;
     Path(int s, int e){
         _direction = {s,e};
     }
@@ -37,6 +36,7 @@ struct Tree{
     int size(){
         this->data.size();
     }
+    // in ra dữ liệu của T
     friend ostream& operator<<(ostream& os , Tree tree)
     {
         os << '{';
@@ -66,12 +66,12 @@ void Tree_BFS(int r){
 }
 int main()
 {
-    Start(); // nhập đồ thị
+    Start(); // đọc dữu liệu từ file
     Tree_BFS(root);
     cout << T;
 }
 
-vi Ke(int v)
+vi Ke(int v) // Tìm các đỉnh kề
 {
     vi _ke;
     for(int i=0 ; i<n ; i++)
