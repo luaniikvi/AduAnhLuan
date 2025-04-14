@@ -5,7 +5,7 @@ int a[100][100];
 int n;
 int main()
 {
-    freopen("Bai2.inp","r",stdin);
+    freopen("bai2.inp","r",stdin);
     freopen("task.out","w",stdout);
     cin >> n;
     for(int i=1 ; i<=n ; i++)
