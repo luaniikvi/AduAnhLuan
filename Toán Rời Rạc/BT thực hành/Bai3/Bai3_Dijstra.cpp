@@ -64,7 +64,7 @@ int main()
     // in ra đường đi
     for(int i=0 ; i<n ; i++)
     {
-        if( i == s ) continue;
+        if( i == s ) continue; // bỏ qua d[s] vì d[s] luôn = 0
         cout << "d["<<i<<"]:"; format(d[i]);
         PrintPath(i);// in ra đường đi
         cout << endl;
@@ -92,7 +92,8 @@ int w(int i, int j)
     if(!isdigit(num[0])) return inf;
     else return stoi(num);
 }
-int compare(int sum){
+int compare(int sum) // hàm tồn tại với mục đích so sánh các giá trị liên quan với vô cùng
+{
     return min(sum,inf);
 }
 void format(int a){
@@ -101,24 +102,27 @@ void format(int a){
 }
 void PrintPath(int e)
 {
+    // d[i] == vô cùng -> kh có đường đi từ s đến i
     if(d[e] == inf){
         cout << "Khong co duong di";
         return;
     }
+    // tạo mảng chứa đường đi
     vi paths;
     while(e != s)
     {
         paths.push_back(e);
         e = truoc[e];
     }
-    cout << s;
+    cout << s;// điểm s
+    // các điểm sau đó
     for(int i=paths.size()-1 ; i>=0 ; i--)
         cout << "->" << paths[i];
 }
 vi Delete(vi a, int val){
     vi del;
     for(auto i : a)
-        if(i == val) continue;
+        if(i == val) continue; // nếu = giá trị cần xóa -> đơn giản là bỏ qua
         else del.push_back(i);
     return del;
 }
