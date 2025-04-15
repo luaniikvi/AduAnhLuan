@@ -5,18 +5,18 @@
 #include<sstream>
 #include<queue>
 using namespace std;
-#define vvi vector<vector<int>> // mảng 2 chiều cho ma trận trọng số
-#define vi vector<int>          // mảng 1 chiều
+#define vvi vector<vector<int>> // viết tắt mảng 2 chiều cho ma trận trọng số
+#define vi vector<int>          // viết tắt mảng 1 chiều
 int n;                          // số đỉnh
 vvi MaTranKe;                   // ma trận kề
 vi d;                           // độ dài đường đi (từ đỉnh S)
 vi ChuaXet;                     // đánh dấu các đỉnh
-vi V;                           // các đỉnh v[0] .. v[n-1]
+
 int root = 1;             // vị trí bắt đầu
 vi ThuTuXet = {4,0,6,3,1,7,5,2,8}; // Thứ tự xét (mặc định là từ bé đến lớn) = {0,1,..,n-1}
-vi Ke(int v);
-void Start();
-struct Path // đường đi (có hướng)
+vi Ke(int v);// Tìm các đỉnh kề
+void Start();// truy xuất dữ liệu
+struct Path  // đường đi (có hướng)
 {
     vi _direction;
     Path(int s, int e){
@@ -49,9 +49,10 @@ struct Tree{
         return os;
     }
 };
-
 Tree T;
 void Tree_BFS(int r){
+    vi V(n);        // các đỉnh {0..n-1}
+    for(int i=0 ; i<n ; i++) V[i] = i;
     queue<int> que; // tạo hàng chờ
     que.push(r);    // thêm r vào hàng chờ
     ChuaXet[r] = 0;
@@ -111,7 +112,4 @@ void Start(){
     MaTranKe = temp;
     // ChuaXet[i] = 1;
     ChuaXet.resize(n,1);
-    // Tạo mảng chứa đỉnh 0..n-1
-    V.resize(n);
-    for(int i=0 ; i<n ; i++) V[i] = i;
 }
