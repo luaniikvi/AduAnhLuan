@@ -57,8 +57,9 @@ int main()
 {
     Start(); // lấy giá trị từ file
     Dijstra();
-    for(int i=1 ; i<n ; i++)
+    for(int i=0 ; i<n ; i++)
     {
+        if( i == s ) continue;
         cout << "d["<<i<<"]: "; format(d[i]);
         PrintPath(i);// in ra đường đi
         cout << endl;
