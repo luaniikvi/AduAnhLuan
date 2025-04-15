@@ -1,3 +1,5 @@
+// Lưu y: các đỉnh bắt đầu từ 0 đến n-1
+
 #include<iostream>
 #include<vector>
 #include<sstream>
@@ -9,8 +11,8 @@ int n;                          // số đỉnh
 vvi MaTranKe;                   // ma trận kề
 vi d;                           // độ dài đường đi (từ đỉnh S)
 vi ChuaXet;                     // đánh dấu các đỉnh
-vi V;                           // các đỉnh
-int root = 0;                   // vị trí bắt đầu 
+vi V;                           // các đỉnh v[0] .. v[n-1]
+int root = 0;             // vị trí bắt đầu
 vi Ke(int v);
 void Start();
 struct Path // đường đi (có hướng)
@@ -49,16 +51,18 @@ struct Tree{
 Tree T;
 void Tree_BFS(int r){
     queue<int> que; // tạo hàng chờ
-    que.push(r);
+    que.push(r);    // thêm r vào hàng chờ
     ChuaXet[r] = 0;
+    // Khi QUEUE != rỗng
     while(!que.empty())
     {
-        int v = que.front();que.pop();
+        int v = que.front();que.pop(); // Lấy giá trị lưu vào v
         for(int u : Ke(v)){
             if(ChuaXet[u])
             {
                 que.push(u);
                 ChuaXet[u] = 0;
+                // thêm cặp (v,u) vào trong T
                 T.add(Path(v,u));
             }
         }

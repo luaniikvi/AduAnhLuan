@@ -1,3 +1,5 @@
+// Lưu y: các đỉnh bắt đầu từ 0 đến n-1
+
 #include <iostream>
 #include<vector>
 #define vvi vector<vector<int>> // mảng 2 chiều
@@ -17,6 +19,7 @@ void PrintPath(int e);
 vi Delete(vi a, int val);
 void Dijstra(){
     // Tạo mảng V chứa tất cả các đỉnh của đồ thị
+    // Thứ tự có thể tùy theo đề bài yêu cầu
     vi V(n); for(int i=0 ; i<n ;i++) V[i] = i;
     // khởi tạo các giá trị theo thuật toán
     for(auto v : V)
@@ -57,10 +60,11 @@ int main()
 {
     Start(); // lấy giá trị từ file
     Dijstra();
+    // in ra đường đi
     for(int i=0 ; i<n ; i++)
     {
         if( i == s ) continue;
-        cout << "d["<<i<<"]: "; format(d[i]);
+        cout << "d["<<i<<"]:"; format(d[i]);
         PrintPath(i);// in ra đường đi
         cout << endl;
     }
@@ -91,12 +95,15 @@ int compare(int sum){
     return min(sum,inf);
 }
 void format(int a){
-    if(a == inf) cout << "inf ";
-    else cout << a << ' ';
+    if(a == inf) cout << "inf   ";
+    else cout << a <<    "      ";
 }
 void PrintPath(int e)
 {
-    if(d[e] == inf) return;
+    if(d[e] == inf){
+        cout << "Khong co duong di";
+        return;
+    }
     vi paths;
     while(e != s)
     {
