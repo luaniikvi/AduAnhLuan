@@ -96,7 +96,7 @@ int compare(int sum){
 }
 void format(int a){
     if(a == inf) cout << "inf   ";
-    else cout << a <<    "      ";
+    else cout <<   a  << "      ";
 }
 void PrintPath(int e)
 {

@@ -12,7 +12,8 @@ vvi MaTranKe;                   // ma trận kề
 vi d;                           // độ dài đường đi (từ đỉnh S)
 vi ChuaXet;                     // đánh dấu các đỉnh
 vi V;                           // các đỉnh v[0] .. v[n-1]
-int root = 0;             // vị trí bắt đầu
+int root = 1;             // vị trí bắt đầu
+vi ThuTuXet = {4,0,6,3,1,7,5,2,8}; // Thứ tự xét (mặc định là từ bé đến lớn) = {0,1,..,n-1}
 vi Ke(int v);
 void Start();
 struct Path // đường đi (có hướng)
@@ -48,6 +49,7 @@ struct Tree{
         return os;
     }
 };
+
 Tree T;
 void Tree_BFS(int r){
     queue<int> que; // tạo hàng chờ
@@ -78,25 +80,38 @@ int main()
 vi Ke(int v) // Tìm các đỉnh kề
 {
     vi _ke;
-    for(int i=0 ; i<n ; i++)
+    if(ThuTuXet.empty()) // Nếu rỗng xét theo chiều từ bé đến lớn
     {
-        if(i == v) continue;
-        if(MaTranKe[i][v] >= 1)
-            _ke.push_back(i);
+        for(int i=0 ; i<n ; i++)
+        {
+            if(i == v) continue;
+            if(MaTranKe[i][v] >= 1)
+                _ke.push_back(i);
+        }
     }
+    else    // Xét theo chiều quy ước
+        for(auto i : ThuTuXet)
+        {
+            if(i == v) continue;
+            if(MaTranKe[i][v] >=1)
+                _ke.push_back(i);
+        }
     return _ke;
 }
 void Start(){
     freopen("Bai5.inp","r",stdin);
     freopen("task.out","w",stdout);
     cin >> n;
+
+    // Nhập ma trận kề
     vvi temp(n,vi(n));
     for(auto &row : temp)
         for(auto &col : row)
             cin >> col;
     MaTranKe = temp;
-    ChuaXet.resize(n);
+    // ChuaXet[i] = 1;
+    ChuaXet.resize(n,1);
+    // Tạo mảng chứa đỉnh 0..n-1
     V.resize(n);
     for(int i=0 ; i<n ; i++) V[i] = i;
-    for(int i=0 ; i<n ; i++) ChuaXet[i] = 1;
 }
