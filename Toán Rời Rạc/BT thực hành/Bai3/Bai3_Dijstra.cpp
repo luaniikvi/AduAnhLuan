@@ -80,7 +80,7 @@ void Start(){
     MaTranTrongSo = temp;
 }
 int w(int i, int j)
-{
+{   
     if(i == j) return 0;
     string num = MaTranTrongSo[i][j];
     if(!isdigit(num[0])) return inf;
@@ -97,12 +97,12 @@ void PrintPath(int e)
 {
     if(d[e] == inf) return;
     vi paths;
-    while(truoc[e] != s)
+    while(e != s)
     {
         paths.push_back(e);
         e = truoc[e];
     }
-    cout << s << "->" << e;
+    cout << s;
     for(int i=paths.size()-1 ; i>=0 ; i--)
         cout << "->" << paths[i];
 }
