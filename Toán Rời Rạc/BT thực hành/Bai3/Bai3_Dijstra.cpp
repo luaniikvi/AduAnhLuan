@@ -8,7 +8,7 @@ int n; // Số đỉnh
 int s = 0; // Đỉnh bắt đầu
 vi d;  // Đường đi ngắn nhất từ đỉnh S đến i
 vi truoc;
-vvi MaTranTrongSo;
+vector<vector<string>> MaTranTrongSo;
 void Start();
 int w(int i, int j);
 int compare(int sum);
@@ -73,19 +73,18 @@ void Start(){
     cin >> n;
     d.resize(n);
     truoc.resize(n);
-    vvi temp(n,vi(n));
+    vector<vector<string>> temp(n,vector<string>(n));
     for(auto &row : temp)
         for(auto &col : row)
-            {
                 cin >> col;
-                if(col == -1) col = inf;
-            }
     MaTranTrongSo = temp;
 }
 int w(int i, int j)
 {
     if(i == j) return 0;
-    return MaTranTrongSo[i][j];
+    string num = MaTranTrongSo[i][j];
+    if(!isdigit(num[0])) return inf;
+    else return stoi(num);
 }
 int compare(int sum){
     return min(sum,inf);

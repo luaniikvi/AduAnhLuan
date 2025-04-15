@@ -1,4 +1,9 @@
-Vi tri song song la: 1 2
-Vi tri co vong: 3
-Dinh treo: 3 
-Dinh co lap: 4 
+p    q    r    (p->q)^r
+1    1    1       0
+1    1    0       0
+1    0    1       0
+1    0    0       0
+0    1    1       1
+0    1    0       1
+0    0    1       1
+0    0    0       1
