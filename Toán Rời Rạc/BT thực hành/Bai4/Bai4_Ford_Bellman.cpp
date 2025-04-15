@@ -9,7 +9,7 @@ using namespace std;
 int n; // Số đỉnh
 int s = 0; // Đỉnh bắt đầu
 vi d;  // Đường đi ngắn nhất từ đỉnh S đến i
-vi truoc;
+vi Truoc;
 vector<vector<string>> MaTranTrongSo;
 void Start();
 int w(int i, int j);
@@ -17,50 +17,32 @@ int compare(int sum);
 void format(int a);
 void PrintPath(int e);
 vi Delete(vi a, int val);
-void Dijstra(){
+void Ford_Bellman(){
     // Tạo mảng V chứa tất cả các đỉnh của đồ thị
     // Thứ tự có thể tùy theo đề bài yêu cầu
     // Nhưng thứ tự kh ảnh hướng đến kết quả
-    vi V(n); for(int i=0 ; i<n ;i++) V[i] = i;
+    vi V(n);for(int i=0 ; i<n ; i++) V[i] = i; // mặc định là tăng dần
     // khởi tạo các giá trị theo thuật toán
-    for(auto v : V)
+    for(int v : V)
     {
         d[v] = w(s,v);
-        truoc[v] = s;
+        Truoc[v] = s;
     }
     d[s] = 0;
-    vi T = Delete(V,s); // T = V\{s}
 
-    // khi T != rỗng
-    while(!T.empty())
-    {
-        // tìm u thuộc T sao cho d[u] = min{ d[z] | z thuộc T}
-        // ->đơn giản là tìm u thuộc T sao cho d[u] bé nhất
-        int u;
-        int min_dz = inf;
-        for(int z : T)
-        {
-            if(d[z] <= min_dz)
-            {
-                u = z;
-                min_dz = d[z];
-            }
-        }
-        T = Delete(T,u); // xóa {u} ra khỏi T
-        for(auto v : T)
-        {
-            int f = compare(d[u] + w(u,v));
-            if(d[v] > f){
-                d[v] = d[u] + w(u,v);
-                truoc[v] = u;
-            }
-        }
-    }
-}
+    for (int k = 1; k < n-1; k++) // n : số đỉnh
+        for(int v : Delete(V,s))  //for (v ∈ V \ {s})
+            for(int u : V)        //for (u ∈ V)
+                if (d[v] > compare(d[u] + w(u,v)))
+                {
+                    d[v] = d[u] + w(u,v);
+                    Truoc[v] = u;
+                }
+}// Kết thúc Ford_Bellman()
 int main()
 {
     Start(); // lấy giá trị từ file
-    Dijstra();
+    Ford_Bellman();
     // in ra đường đi
     for(int i=0 ; i<n ; i++)
     {
@@ -73,12 +55,12 @@ int main()
     return 0;
 }
 void Start(){
-    freopen("bai3.inp", "r", stdin);
-    freopen("task.out", "w", stdout);
+    freopen("bai4.inp", "r", stdin);
+    freopen("bai4.out", "w", stdout);
 
     cin >> n;
     d.resize(n);
-    truoc.resize(n);
+    Truoc.resize(n);
     vector<vector<string>> temp(n,vector<string>(n));
     for(auto &row : temp)
         for(auto &col : row)
@@ -89,7 +71,7 @@ int w(int i, int j)
 {   
     if(i == j) return 0;
     string num = MaTranTrongSo[i][j];
-    if(!isdigit(num[0])) return inf;
+    if(!isdigit(num[0]) && num[0] != '-') return inf;
     else return stoi(num);
 }
 int compare(int sum){
@@ -109,7 +91,7 @@ void PrintPath(int e)
     while(e != s)
     {
         paths.push_back(e);
-        e = truoc[e];
+        e = Truoc[e];
     }
     cout << s;
     for(int i=paths.size()-1 ; i>=0 ; i--)
