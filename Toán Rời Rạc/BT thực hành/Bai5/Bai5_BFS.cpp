@@ -13,7 +13,7 @@ vi d;                           // độ dài đường đi (từ đỉnh S)
 vi ChuaXet;                     // đánh dấu các đỉnh
 
 int root = 1;             // vị trí bắt đầu
-vi ThuTuXet = {4,0,6,3,1,7,5,2,8}; // Thứ tự xét (mặc định là từ bé đến lớn) = {0,1,..,n-1}
+vi ThuTuXet;// = {4,0,6,3,1,7,5,2,8}; // Thứ tự xét (mặc định là từ bé đến lớn) = {0,1,..,n-1}
 vi Ke(int v);// Tìm các đỉnh kề
 void Start();// truy xuất dữ liệu
 struct Path  // đường đi (có hướng)

@@ -97,21 +97,15 @@ void format(int a){
 void PrintPath(int e)
 {
     // d[i] == vô cùng -> kh có đường đi từ s đến i
-    if(d[e] == inf){
-        cout << "Khong co duong di";
+    if(d[e] == inf) cout << "Khong co duong di";
+    // tạo mảng chứa đường đi
+    else if(e == s)
+    {
+        cout << s;
         return;
     }
-    // tạo mảng chứa đường đi
-    vi paths;
-    while(e != s)
-    {
-        paths.push_back(e);
-        e = truoc[e];
-    }
-    cout << s;// điểm s
-    // các điểm sau đó
-    for(int i=paths.size()-1 ; i>=0 ; i--)
-        cout << "->" << paths[i];
+    PrintPath(truoc[e]);
+    cout << "->" << e;
 }
 vi Delete(vi a, int val){
     vi del;

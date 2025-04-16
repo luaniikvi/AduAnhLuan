@@ -13,28 +13,44 @@ int main()
     for(int i=0 ; i<n ; i++)
         for(int j=0 ; j<n ; j++)
             cin >> a[i][j];         // nhập ma trận kề
+    vector<int> treo,colap,vong,songsong;
+
 	for(int i=0 ; i<n ; i++)
-		for(int j=0 ; j<n ; j++)
+    {
+        int sum = 0;
+        for(int j=0 ; j<n ; j++)
 		{
-            // song song
+            sum+= a[i][j];
+
 			if(i==j && a[i][j]==1)
-				cout<<"Vi tri co vong: "<<i<<endl;
-            // vòng
-			if(a[i][j]==a[j][i] && a[i][j]>=2 &&i<j)
-				cout<<"Vi tri song song la: "<< i <<" "<< j <<endl;
-		}
-    vector<int> treo,colap; // tạo mảng chứa các đỉnh treo và cô lập
-	for(int i=0;i<n;i++)
-	{ 
-	    int sum=0;
-	    for(int j=0;j<n;j++)
-	    	sum+=a[i][j];
-        // nếu tổng bằng 1 thì là đỉnh treo
-	    if(sum==1) treo.push_back(i);
-        // tổng = 0 -> cô lập
-	    if(sum==0) colap.push_back(i);
-	}
+				vong.push_back(i);
+			else if(a[i][j]==a[j][i] && a[i][j]>=2)
+                songsong.push_back(i);
+        }
+        if(sum == 0)
+            colap.push_back(i);
+        else if(sum == 1)
+            treo.push_back(i);
+    }
+		
+
+
+
     // cout
+    if(songsong.size())
+    {
+        cout << "Dinh song song: ";
+        for(auto i : songsong)
+            cout << i << ' ';
+        cout << endl;
+    }
+    if(vong.size())
+    {
+        cout << "Dinh vong: ";
+        for(auto i : vong)
+            cout << i << ' ';
+        cout << endl;
+    }
     if(treo.size())
     {
         cout << "Dinh treo: ";
