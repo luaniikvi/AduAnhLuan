@@ -24,10 +24,10 @@ int main()
 				cout<<"Vi tri song song la: "<< i <<" "<< j <<endl;
 		}
     vector<int> treo,colap; // tạo mảng chứa các đỉnh treo và cô lập
-	for(int i=1;i<=n;i++)
+	for(int i=0;i<n;i++)
 	{ 
 	    int sum=0;
-	    for(int j=1;j<=n;j++)
+	    for(int j=0;j<n;j++)
 	    	sum+=a[i][j];
         // nếu tổng bằng 1 thì là đỉnh treo
 	    if(sum==1) treo.push_back(i);

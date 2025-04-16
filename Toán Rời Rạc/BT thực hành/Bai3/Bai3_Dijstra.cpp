@@ -13,7 +13,6 @@ vi truoc;
 vector<vector<string>> MaTranTrongSo;
 void Start();
 int w(int i, int j);
-int compare(int sum);
 void format(int a);
 void PrintPath(int e);
 vi Delete(vi a, int val);
@@ -49,8 +48,7 @@ void Dijstra(){
         T = Delete(T,u); // xóa {u} ra khỏi T
         for(auto v : T)
         {
-            int f = compare(d[u] + w(u,v));
-            if(d[v] > f){
+            if(d[v] > d[u] + w(u,v)){
                 d[v] = d[u] + w(u,v);
                 truoc[v] = u;
             }
@@ -91,10 +89,6 @@ int w(int i, int j)
     string num = MaTranTrongSo[i][j];
     if(!isdigit(num[0])) return inf;
     else return stoi(num);
-}
-int compare(int sum) // hàm tồn tại với mục đích so sánh các giá trị liên quan với vô cùng
-{
-    return min(sum,inf);
 }
 void format(int a){
     if(a == inf) cout << "inf   ";
