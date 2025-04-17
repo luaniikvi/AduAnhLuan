@@ -13,7 +13,7 @@ vi Truoc;
 vector<vector<string>> MaTranTrongSo;
 void Start();
 int w(int i, int j);
-int compare(int a,int b);
+int sum(int a,int b);
 void format(int a);
 void PrintPath(int e);
 vi Delete(vi a, int val);
@@ -33,7 +33,7 @@ void Ford_Bellman(){
     for (int k = 1; k < n-1; k++) // n : số đỉnh
         for(int v : Delete(V,s))  //for (v ∈ V \ {s})
             for(int u : V)        //for (u ∈ V)
-                if (d[v] > compare(d[u],w(u,v)))
+                if (d[v] > sum(d[u],w(u,v)))
                 {
                     d[v] = d[u] + w(u,v);
                     Truoc[v] = u;
@@ -74,7 +74,7 @@ int w(int i, int j)
     if(!isdigit(num[0]) && num[0] != '-') return inf;
     else return stoi(num);
 }
-int compare(int a, int b) // hàm tồn tại với mục đích so sánh các giá trị liên quan với vô cùng
+int sum(int a, int b) // hàm tồn tại với mục đích so sánh các giá trị liên quan vô cùng
 {
     if(a == inf || b == inf)
         return inf;
