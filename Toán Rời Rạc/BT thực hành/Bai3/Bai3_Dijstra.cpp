@@ -22,7 +22,7 @@ void Dijstra(){
     // Nhưng thứ tự kh ảnh hướng đến kết quả
     vi V(n); for(int i=0 ; i<n ;i++) V[i] = i;
     // khởi tạo các giá trị theo thuật toán
-    for(auto v : V)
+    for(int v : V)
     {
         d[v] = w(s,v);
         truoc[v] = s;
@@ -46,7 +46,7 @@ void Dijstra(){
             }
         }
         T = Delete(T,u); // xóa {u} ra khỏi T
-        for(auto v : T)
+        for(int v : T)
         {
             if(d[v] > d[u] + w(u,v)){
                 d[v] = d[u] + w(u,v);
@@ -64,7 +64,8 @@ int main()
     {
         if( i == s ) continue; // bỏ qua d[s] vì d[s] luôn = 0
         cout << "d["<<i<<"]:"; format(d[i]);
-        PrintPath(i);// in ra đường đi
+        PrintPath(i);// in ra đường đi từ s->i
+    
         cout << endl;
     }
     // cout << "//inf: kh tồn tại đường đi";
@@ -109,7 +110,7 @@ void PrintPath(int e)
 }
 vi Delete(vi a, int val){
     vi del;
-    for(auto i : a)
+    for(int i : a)
         if(i == val) continue; // nếu = giá trị cần xóa -> đơn giản là bỏ qua
         else del.push_back(i);
     return del;
