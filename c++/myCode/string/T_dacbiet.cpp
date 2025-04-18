@@ -40,7 +40,7 @@ int c_nearPalin(string s)
         {
             if(nearPalin(s.substr(i,k))){ 
                 cnt++;
-                cout << s.substr(i,k) << endl;
+                //cout << s.substr(i,k) << endl;
             }
         }
     }
@@ -49,6 +49,7 @@ int c_nearPalin(string s)
 
 int main()
 {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     string s = "aabbcc";
     // ??? du ma m git
     cout << c_nearPalin(s);

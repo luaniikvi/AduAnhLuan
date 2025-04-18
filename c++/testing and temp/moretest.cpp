@@ -1,17 +1,33 @@
 #include<iostream>
-#include<queue>
 using namespace std;
+
+char mod2(string num)
+{
+    return (num.back() -'0')%2 +'0';
+}
+
+string div2(string num)
+{
+    string result = "";
+    int carry = 0;
+    for (char digit : num) {
+        int current = (digit - '0') + carry * 10;
+        result += (current / 2) + '0';
+        carry = current % 2;
+    }
+    if (result[0] == '0' && result.length() > 1) {
+        result = result.substr(1);
+    }
+    return result;
+}
 
 int main()
 {
-    std::queue <int> q_data;
-    q_data.push(1);
-    q_data.push(2);
-    q_data.push(4);
-    q_data.pop();
-    while(q_data.size()!= 0)
-    {
-        cout << q_data.front() << ' ';
-        q_data.pop();
+    string n; cin >> n;
+    string bi = "";
+    while(n!= "0"){
+        bi = mod2(n) + bi;
+        n = div2(n);
     }
+    cout << bi;
 }
