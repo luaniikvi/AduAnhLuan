@@ -67,14 +67,14 @@ int main()
     freopen("task.out", "w", stdout);
     bool list[]={1,0};
     string debai = "(p->q)^r";
-    cout << "p    q    r    " << debai << endl;
+    cout << "p q r " << debai << endl;
     for(Bool p : list)
         for(Bool q : list)
         {
             for(Bool r : list)
             {
                 Bool res = (p-q)^r; //De bai
-                cout << p << "    " << q << "    " << r << "       " << res;
+                cout << p << " " << q << " " << r << " " << res;
                 cout << endl;
             }
         }

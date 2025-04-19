@@ -49,6 +49,7 @@ struct Tree{
         return os;
     }
 };
+
 Tree T;
 void Tree_BFS(int r){
     vi V(n);        // các đỉnh {0..n-1}
