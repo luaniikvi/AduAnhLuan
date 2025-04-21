@@ -6,26 +6,29 @@ using namespace std;
 int n;  // số đỉnh
 int main()
 {
-    freopen("bai2.inp","r",stdin);  // đọc file
-    freopen("task.out","w",stdout); // ghi file
+    freopen("bai-2.inp","r",stdin);  
+    freopen("task.out", "w",stdout); 
     cin >> n;                       // đọc số đỉnh
     vector<vector<int>> a(n,vector<int>(n)); // tạo ma trận kề
     for(int i=0 ; i<n ; i++)
         for(int j=0 ; j<n ; j++)
-            cin >> a[i][j];         // nhập ma trận kề
-    vector<int> treo,colap,vong,songsong;
-
+            cin >> a[i][j];  
+    vector<int> treo,colap,vong;
+    vector<vector<int>> songsong(2, vector<int>(10000));
+    int k=0;
 	for(int i=0 ; i<n ; i++)
     {
+        if(a[i][i] >= 1) vong.push_back(i);
         int sum = 0;
         for(int j=0 ; j<n ; j++)
 		{
             sum+= a[i][j];
-
-			if(i==j && a[i][j]==1)
-				vong.push_back(i);
-			else if(a[i][j]==a[j][i] && a[i][j]>=2)
-                songsong.push_back(i);
+			if(a[i][j]==a[j][i] && a[i][j]>=2 && i!=j)
+            {
+                songsong[0][k]=i;
+                songsong[1][k]=j;
+                k++;
+            }
         }
         if(sum == 0)
             colap.push_back(i);
@@ -34,34 +37,33 @@ int main()
     }
 		
 
-
-
     // cout
     if(songsong.size())
     {
-        cout << "Dinh song song: ";
-        for(auto i : songsong)
-            cout << i << ' ';
+        cout << "Canh song song: ";
+        for(int i=0; i<k;i++)
+            cout << songsong[0][i]<<'-'<<songsong[1][i]<< ' ';
         cout << endl;
-    }
+    } else cout << "Canh song song: Khong co"<<endl;
     if(vong.size())
     {
         cout << "Dinh vong: ";
         for(auto i : vong)
             cout << i << ' ';
         cout << endl;
-    }
+    } else cout << "Dinh vong: Khong co"<<endl;
     if(treo.size())
     {
         cout << "Dinh treo: ";
         for(auto i : treo)
             cout << i << ' ';
         cout << endl;
-    }
+    } else cout << "Dinh treo: Khong co"<<endl;
     if(colap.size())
     {
         cout << "Dinh co lap: ";
         for(auto i : colap)
             cout << i << ' ';
-    }
+    } else cout << "Dinh co lap: Khong co";
+    return 0;
 }

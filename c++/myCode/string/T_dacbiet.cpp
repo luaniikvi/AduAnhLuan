@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+// dùng brucef n^3logn
 bool isPalindrome(string s)
 {
     if(s.length() == 1) return true;

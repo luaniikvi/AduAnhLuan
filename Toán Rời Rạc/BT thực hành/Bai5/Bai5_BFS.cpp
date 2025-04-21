@@ -13,7 +13,7 @@ vi d;                           // độ dài đường đi (từ đỉnh S)
 vi ChuaXet;                     // đánh dấu các đỉnh
 
 int root = 1;             // vị trí bắt đầu
-vi ThuTuXet;// = {4,0,6,3,1,7,5,2,8}; // Thứ tự xét (mặc định là từ bé đến lớn) = {0,1,..,n-1}
+vi ThuTuXet = {4,0,6,3,1,7,5,2,8}; // Thứ tự xét (mặc định là từ bé đến lớn) = {0,1,..,n-1}
 vi Ke(int v);// Tìm các đỉnh kề
 void Start();// truy xuất dữ liệu
 struct Path  // đường đi (có hướng)
@@ -37,20 +37,20 @@ struct Tree{
         this->data.push_back(p);
     }
     int size(){
-        this->data.size();
+        return this->data.size();
     }
     // in ra dữ liệu của T
     friend ostream& operator<<(ostream& os , Tree tree)
     {
-        os << '{';
+        os << "{";
         for(int i=0 ; i<tree.size()-1 ; i++)
-            os << tree.data[i].pair() << ',';
+            os << tree.data[i].pair() << ",";
         os << tree.data.back().pair() << "}";
         return os;
     }
 };
 
-Tree T;
+Tree T;         // chứa các cạnh của canh khung
 void Tree_BFS(int r){
     vi V(n);        // các đỉnh {0..n-1}
     for(int i=0 ; i<n ; i++) V[i] = i;
@@ -64,7 +64,7 @@ void Tree_BFS(int r){
         for(int u : Ke(v)){
             if(ChuaXet[u])
             {
-                que.push(u);
+                que.push(u); // thêm u vào hàng chờ
                 ChuaXet[u] = 0;
                 // thêm cặp (v,u) vào trong T
                 T.add(Path(v,u));
@@ -77,6 +77,7 @@ int main()
     Start(); // đọc dữu liệu từ file
     Tree_BFS(root);
     cout << T;
+    return 0;
 }
 
 vi Ke(int v) // Tìm các đỉnh kề
