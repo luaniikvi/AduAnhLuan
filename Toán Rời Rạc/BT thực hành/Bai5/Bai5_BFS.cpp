@@ -50,13 +50,15 @@ struct Tree{
     }
 };
 
-Tree T;         // chứa các cạnh của canh khung
+Tree T;         // chứa các cạnh của cây khung
 void Tree_BFS(int r){
     vi V(n);        // các đỉnh {0..n-1}
     for(int i=0 ; i<n ; i++) V[i] = i;
+
     queue<int> que; // tạo hàng chờ
     que.push(r);    // thêm r vào hàng chờ
     ChuaXet[r] = 0;
+
     // Khi QUEUE != rỗng
     while(!que.empty())
     {

@@ -1,33 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <climits>
+#include<iostream>
+#include<climits>
 using namespace std;
-int n, l;
+int n,a[50001];
+
 int main()
 {
-    cin >> n >> l;
-    vector<int> word_lens(n);
-    for (int i = 0; i < n; ++i) cin >> word_lens[i];
-
-
-    vector<int> dp(n + 1, INT_MAX);
-    dp[0] = 0; 
-
-    for (int i = 1; i <= n; ++i) {
-        int line_length = 0;
-        
-        for (int j = i; j >= 1; --j) {
-            line_length += word_lens[j - 1];
-            int spaces = i - j; 
-            
-            if (line_length + spaces > l) {
-                break;
-            }
-
-            dp[i] = min(dp[i], dp[j - 1] + (l - (line_length + spaces)) * (l - (line_length + spaces)));
-        }
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cin >> n;
+    int max_diff= 0;
+    int min_val = INT_MAX;
+    for(int i=1 ; i<=n ; i++)
+    {
+        cin >> a[i]; 
+        if(i == 1) continue;
+        // thuật toán Max Difference with Index Condition
+        max_diff = max(max_diff , a[i] - min_val);
+        min_val = min(min_val,a[i]);
     }
-
-    cout << dp[n] << endl;
+    
+    cout << max_diff;
     return 0;
 }

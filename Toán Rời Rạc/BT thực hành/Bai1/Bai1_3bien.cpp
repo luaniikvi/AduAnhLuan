@@ -6,15 +6,15 @@ struct Bool{
     //set value
     Bool(bool x): value(x){};
     Bool(){};
-    // hay or
+    // hay or (nối rời)
     Bool operator| (Bool b){
         return (this->value || b.value);
     }
-    //  va and
+    //  va and (nối liền)
     Bool operator&(Bool b){
         return (this->value && b.value);
     }
-    // hoac xor
+    // hoac xor (Nối rời loại trừ)
     Bool operator^(Bool b){
         return (this->value ^ b.value);
     }
@@ -23,7 +23,7 @@ struct Bool{
             if(this->value == 1 && b.value == 0) return 0;
             return 1;
     }
-    // not
+    // not (phụ định)
     Bool operator!(){
         return !this->value;
     }
