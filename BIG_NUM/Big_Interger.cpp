@@ -1925,12 +1925,3 @@ std::ostream& operator<<(std::ostream& out, const BigInt& num) {
 }
 
 #endif  // BIG_INT_IO_STREAM_OPERATORS_HPP
-
-
-int main()
-{
-    BigInt a, b;
-    cin >> a >> b;
-    cout << a%b;
-    return 0;
-}

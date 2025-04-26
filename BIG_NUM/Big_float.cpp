@@ -1105,7 +1105,7 @@ struct BigInt
 };
 BigInt __gcd(BigInt first_number, BigInt second_number)
 {
-    return second_number == 0 ? first_number : __gcd(second_number, first_number % second_number);
+    return second_number == BigInt(0) ? first_number : __gcd(second_number, first_number % second_number);
 }
 inline BigInt __lcm(BigInt first_number, BigInt second_number)
 {
@@ -1116,16 +1116,16 @@ BigInt phi(BigInt number)
     BigInt answer = number;
     for (BigInt i = 2; i * i <= number; i++)
     {
-        if (number % i == 0)
+        if (number % i == BigInt(0))
         {
-            while (number % i == 0)
+            while (number % i == BigInt(0))
             {
                 number /= i;
             }
             answer -= answer / i;
         }
     }
-    if (number > 1)
+    if (number > BigInt(1))
     {
         answer -= answer / number;
     }
