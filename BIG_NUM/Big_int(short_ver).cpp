@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+#include<iomanip>
 using namespace std;
 const int base = 1e9;
 const int base_digits = 9;
