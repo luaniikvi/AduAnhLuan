@@ -7,6 +7,7 @@ struct Node
     Node *next;
     Node(): val(0) , next(NULL){}
     Node(int x):  val(x), next(NULL){}
+    Node(int x, Node *next) : val(x), next(next){}
 };
 
 void printL(Node *ll)
@@ -45,7 +46,7 @@ void deleteNode(Node *a, int val)
     
     return;
 }
-Node* insert_tail(Node* a,int tail)
+void insert_tail(Node* &a,int tail)
 {
     if(a == NULL)
     {
@@ -56,7 +57,7 @@ Node* insert_tail(Node* a,int tail)
     while(a->next != NULL)
         a = a->next;
     a->next = new Node(tail);
-    return head;
+    a = head;
 }
 
 void sortList(Node* &head) {
@@ -108,3 +109,5 @@ void sortListDescending(Node* &head) {
         lptr = ptr1;
     } while (swapped);
 }
+
+typedef Node ListNode;
