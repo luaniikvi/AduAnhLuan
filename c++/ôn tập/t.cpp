@@ -1,9 +1,9 @@
 #include<iostream>
-#include<vector>
 using namespace std;
 int main()
 {
-    int a = 9;
-    vector<int> b = {1,2,3,4,5};
-    cout << "hello" << endl;
+    int n; cin >> n;
+    for(int i=1 ; i<=n ; i++)
+        cout << "Hello world!" << endl;
+    return 0;
 }
