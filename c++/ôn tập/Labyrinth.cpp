@@ -1,61 +1,112 @@
-#include <bits/stdc++.h>
-using namespace std;
-int m,n;
-vector<vector<char>> grid;
-vector<vector<int>> dp;
-vector<vector<char>> trc;
-int dr[] = {-1,1,0,0};
-int dc[] = {0,0,-1,1};
-char dir[] = {'U','D','L','R'};
+#include <vector>
+#include <iostream>
+#include <queue>
+#include <string>
+#include <map>
+#include <algorithm>
 
-bool dps(int i,int j)
-{
-    if(grid[i][j] == 'B') return true;
-    for(int k=0 ; k<4 ; k++)
-    {
-        int nr = i + dr[k];
-        int nc = j + dc[k];
-        if(nr>=0 && nc >=0 && nr < n && nc < m && grid[nr][nc] != '#')
-        {
-            if(dp[nr][nc] > dp[i][j] + 1)
-            {
-                dp[nr][nc] = dp[i][j] + 1;
-                trc[nr][nc] = dir[k];
+using namespace std;
+
+struct point {
+    int x, y;
+    point() : x(-1), y(-1) {};
+    point(int a, int b) : x(a), y(b) {}
+
+    point operator+(point other) {
+        return point(x + other.x, y + other.y);
+    }
+
+    point operator-(point other) {
+        return point(x - other.x, y - other.y);
+    }
+
+    bool operator==(point other) {
+        return (x == other.x && y == other.y);
+    }
+    void operator=(point p) {
+        this->x = p.x;
+        this->y = p.y;
+    }
+    void operator=(vector<int> a) {
+        this->x = a[0];
+        this->y = a[1];
+    }
+};
+
+queue<point> que;
+vector<vector<int>> visited;
+vector<vector<char>> a;
+map<pair<int, int>, pair<point, char>> parent; // Lưu trữ cha và hướng đi
+int dr[] = {-1, 1, 0, 0};
+int dc[] = {0, 0, -1, 1};
+string dir = "UDLR";
+int m, n;
+
+bool isValid(point p) {
+    return p.x >= 0 && p.y >= 0 && p.x < m && p.y < n && visited[p.x][p.y] && a[p.x][p.y] != '#';
+}
+
+bool BFS(point start, point end) {
+    visited[start.x][start.y] = false;
+    que.push(start);
+
+    while (!que.empty()) {
+        point current = que.front();
+        que.pop();
+
+        if (current == end) {
+            return true;
+        }
+
+        for (int i = 0; i < 4; ++i) {
+            point next = current + point(dr[i], dc[i]);
+            if (isValid(next)) {
+                visited[next.x][next.y] = false;
+                parent[{next.x, next.y}] = {current, dir[i]};
+                que.push(next);
             }
-            if(dps(nr,nc)) return true;
         }
     }
     return false;
 }
 
-int main()
-{
+int main() {
     //freopen("task.inp","r",stdin);
     //freopen("task.out","w",stdout);
-    cin >> n >> m;
+    point start, end;
 
-    grid.resize(n,vector<char>(m));
-    dp.resize(n,vector<int>(m,INT_MAX-1));
-    trc.resize(n,vector<char>(m));
+    cin >> m >> n;
 
-    int start_i,start_j,end_i,end_j;  
-    
-    for(int i=0 ; i<n ; i++)
-    {
-        for(int j=0 ; j<m ; j++)
-        {
-            cin >> grid[i][j];
-            if(grid[i][j] == 'A'){
-                start_i = i;
-                start_j = j;
-                dp[i][j] = 0;
-            }
-            else if(grid[i][j] == 'B'){
-                end_i = i;
-                end_j = j;
-            }
+    visited.resize(m, vector<int>(n, 1));
+    a.resize(m, vector<char>(n));
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cin >> a[i][j];
+            if (a[i][j] == 'A') start = point(i, j);
+            else if (a[i][j] == 'B') end = point(i, j);
         }
     }
-    //cout << dps(start_i,start_j);
+
+    if (start == point(-1, -1) || end == point(-1, -1)) {
+        cout << "NO" << endl;
+        return 0;
+    }
+
+    if (BFS(start, end)) {
+        cout << "YES" << endl;
+        string path = "";
+        point curr = end;
+        while (!(curr == start)) {
+            path += parent[{curr.x, curr.y}].second;
+            curr = parent[{curr.x, curr.y}].first;
+        }
+        reverse(path.begin(), path.end());
+        cout << path.length() << endl;
+        cout << path << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }

@@ -1,9 +1,13 @@
 #include<iostream>
+#define faster ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define file(name) freopen(name".inp","r",stdin); freopen(name".out","w",stdout);
+
 using namespace std;
+
+
 int main()
 {
-    int n; cin >> n;
-    for(int i=1 ; i<=n ; i++)
-        cout << "Hello world!" << endl;
+    
+
     return 0;
 }
