@@ -31,12 +31,12 @@ int main() {
     faster;
 
     int m, n, start_r, start_c, k;
-    std::cin >> m >> n >> start_r >> start_c >> k;
+    cin >> m >> n >> start_r >> start_c >> k;
 
-    std::vector<std::vector<int>> h(m, std::vector<int>(n));
+    vector<vector<int>> h(m, vector<int>(n));
     for (int i = 0; i < m; ++i)
         for (int j = 0; j < n; ++j)
-            std::cin >> h[i][j];
+            cin >> h[i][j];
 
     int r = start_r - 1;
     int c = start_c - 1;
@@ -47,7 +47,7 @@ int main() {
 
     for (int step = 0; step < k; ++step) {
         if (r == 0 || r == m - 1 || c == 0 || c == n - 1) {
-            std::cout << "YES\n" << time << "\n";
+            cout << "YES\n" << time << "\n";
             return 0;
         }
 
@@ -66,6 +66,6 @@ int main() {
         ++time;
     }
 
-    std::cout << "NO\n" << (r + 1) << " " << (c + 1) << endl;
+    cout << "NO\n" << (r + 1) << " " << (c + 1) << endl;
     return 0;
 }
