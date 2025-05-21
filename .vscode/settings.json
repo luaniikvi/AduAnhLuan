@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stack": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "map": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp",
+        "random": "cpp"
+    }
+}
