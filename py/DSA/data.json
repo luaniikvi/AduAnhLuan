@@ -1,0 +1,15 @@
+[
+    {
+        "orderID": 1,
+        "data": [
+            {
+                "size": "Lớn (500ml)",
+                "coffeType": "Espresso",
+                "milk": "Fresh milk",
+                "topping": [
+                    "Whipped cream"
+                ]
+            }
+        ]
+    }
+]

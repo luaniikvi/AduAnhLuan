@@ -2,9 +2,10 @@
 #include <vector>
 #include <climits>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
-        //          giai thuat toan         //
+        //          phep toan         //
 char mod2(string num)
 {
     return (num.back() -'0')%2 +'0';
@@ -24,6 +25,54 @@ string div2(string num)
     }
     return result;
 }
+
+string multiply(string num1, string num2)
+{
+    if (num1 == "0" || num2 == "0") return "0";
+
+    int m = num1.size();
+    int n = num2.size();
+    vector<int> res(m + n, 0); // fixed size
+
+    for (int i = m - 1; i >= 0; --i)
+    {
+        for (int j = n - 1; j >= 0; --j)
+        {
+            int mul = (num1[i] - '0') * (num2[j] - '0');
+            int sum = mul + res[i + j + 1];
+            res[i + j + 1] = sum % 10;
+            res[i + j] += sum / 10; // fixed carry accumulation
+        }
+    }
+
+    string ret;
+    for (int num : res)
+    {
+        if (!(ret.empty() && num == 0))
+            ret.push_back(num + '0');
+    }
+    return ret.empty() ? "0" : ret;
+}
+
+string PlusBinary(string binary1, string binary2) {
+        string res = "";
+        int i = binary1.length()-1;
+        int j = binary2.length()-1;
+        int carry = 0;
+        while(i>=0 || j>=0 || carry)
+        {
+            if(i>=0) carry += binary1[i--] - '0';
+            if(j>=0) carry += binary2[j--] - '0';
+
+            res += to_string(carry%2);
+            carry/=2;
+        }
+        if(res.empty()) return "0";
+        reverse(res.begin(), res.end());
+        return res;
+}
+
+
 
 
         //          Chuoi doi xung          //
@@ -144,7 +193,6 @@ string longestPalindrome_2(string s) {
     return s.substr(start,longestWidht);
 }
 
-//exp()
 int expandAroundCenter(const string &s, int left, int right)
 {
     int n = s.length();
@@ -238,4 +286,63 @@ int Count_Special_SubStr(const string &s) {
         }
     }
     return cnt;
+}
+
+// valid patheles
+char rev(char c)
+{
+    if(c == '(') return ')';
+    if(c == '{') return '}';
+    if(c == '[') return ']';
+    return 0;
+}
+
+bool isValidParentheses(string s)
+{
+    vector<char> open;
+    for(char &c : s)
+    {
+        if(c == '{' || c == '(' || c == '[') open.push_back(c);
+        else // close
+        {
+            if(open.empty()) return false;
+            if( c == rev(open.back()) ) open.pop_back();
+            else return false;
+        }
+    }
+
+    return open.empty();
+}
+
+// valid patheles
+char rev(char c)
+{
+    if(c == '(') return ')';
+    if(c == '{') return '}';
+    if(c == '[') return ']';
+    return 0;
+}
+
+bool isValidParentheses(string s)
+{
+    vector<char> open;
+    for(char &c : s)
+    {
+        if(c == '{' || c == '(' || c == '[') open.push_back(c);
+        else // close
+        {
+            if(open.empty()) return false;
+            if( c == rev(open.back()) ) open.pop_back();
+            else return false;
+        }
+    }
+
+    return open.empty();
+}
+
+
+int strStr(string haystack, string needle) {
+    long pos = haystack.find(needle);
+    if(pos == string::npos) return -1;
+    return pos;
 }

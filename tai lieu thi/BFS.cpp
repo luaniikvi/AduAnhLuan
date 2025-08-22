@@ -3,9 +3,6 @@
 #include<queue>
 #include<map>
 
-#define fast 
-#define file(name) freopen(name".inp","r",stdin); freopen(name".out","w",stdout);
-
 using namespace std;
 
 struct point{
@@ -50,8 +47,6 @@ bool BFS(point Start, point End);
 
 int main()
 {
-    fast;
-    //file("task");
     cin >> m >> n;
     a.resize(m,vector<char>(n));
     chuaxet.resize(m,vector<bool>(n,true));    

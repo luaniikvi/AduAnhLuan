@@ -34,9 +34,9 @@ int main() {
     cin >> m >> n >> start_r >> start_c >> k;
 
     vector<vector<int>> h(m, vector<int>(n));
-    for (int i = 0; i < m; ++i)
-        for (int j = 0; j < n; ++j)
-            cin >> h[i][j];
+    for (auto &i : h)
+        for (int &j: i )
+            cin >> j;
 
     int r = start_r - 1;
     int c = start_c - 1;
