@@ -114,6 +114,7 @@ def editOrder(order):
         while order["size"] < 0 or order["size"] >= len(size):
             print("-- Không hợp lệ, vui lòng chọn lại --")
             order["size"] = int(input("Choose your size: ")) - 1
+        order["size"] = size[order["size"]]
     elif edit == 2:
         print("\nChọn nền trà (tea base):")
         for i, item in enumerate(tea):
@@ -122,6 +123,7 @@ def editOrder(order):
         while order["tea"] < 0 or order["tea"] >= len(tea):
             print("-- Không hợp lệ, vui lòng chọn lại --")
             order["tea"] = int(input("Choose your tea: ")) - 1
+        order["tea"] = tea[order["tea"]]
     elif edit == 3:
         print("\nChọn sữa:")
         for i, item in enumerate(milk):
@@ -130,6 +132,7 @@ def editOrder(order):
         while order["milk"] < 0 or order["milk"] >= len(milk):
             print("-- Không hợp lệ, vui lòng chọn lại --")
             order["milk"] = int(input("Choose your milk: ")) - 1
+        order["milk"] = milk[order["milk"]]
     elif edit == 4:
         print("\nChọn đường:")
         for i, item in enumerate(sugar):
@@ -138,6 +141,7 @@ def editOrder(order):
         while order["sugar"] < 0 or order["sugar"] >= len(sugar):
             print("-- Không hợp lệ, vui lòng chọn lại --")
             order["sugar"] = int(input("Choose your sugar: ")) - 1
+        order["sugar"] = sugar[order["sugar"]]
     elif edit == 5:
         print("\nChọn đá:")
         for i, item in enumerate(ice):
@@ -146,6 +150,7 @@ def editOrder(order):
         while order["ice"] < 0 or order["ice"] >= len(ice):
             print("-- Không hợp lệ, vui lòng chọn lại --")
             order["ice"] = int(input("Choose your ice: ")) - 1
+        order["ice"] = ice[order["ice"]]
     else:
         print("\nChọn tối đa 3 loại topping:")
         for i, item in enumerate(topping):
