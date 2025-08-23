@@ -236,14 +236,11 @@ def main():
             print("-- Không hợp lệ, vui lòng chọn lại --")
             confirm = int(input("Choose your choice: "))
 
-        #Xác nhận
-        if confirm == 1:
-            orderList.append(currentOrder)
         #Hủy đơn
-        elif confirm == 3:
+        if confirm == 3:
             print("Đơn đã bị hủy")
         #Sửa đơn
-        else:
+        elif confirm == 2:
             while confirm == 2:
                 currentOrder = editOrder(currentOrder)
                 print("\nĐơn hàng của bạn:")
@@ -257,7 +254,9 @@ def main():
                 while confirm < 1 or confirm > 3:
                     print("-- Không hợp lệ, vui lòng chọn lại --")
                     confirm = int(input("Choose your choice: "))
-
+        # Xác nhận
+        else:
+            orderList.append(currentOrder)
 
         #Order thêm
         conitinueOrder = input("Tiếp tục đặt (y/n)?: ")
@@ -270,7 +269,7 @@ def main():
             break
 
     #Tổng kết Order
-    summary()
+    #summary()
 
 
 
