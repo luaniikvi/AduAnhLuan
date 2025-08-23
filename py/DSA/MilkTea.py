@@ -182,32 +182,36 @@ def summary():
         print(f"- {name}: {count}")
     most = teaCounter.most_common(1)[0]
     least = min(teaCounter.items(), key=lambda x: x[1])
-    print(f"  -->Loại phổ biến nhất: {most[0]} | số lượng: {most[1]}")
-    print(f"  -->Loại ít phổ biến nhất: {least[0]} | số lượng: {least[1]}")
+    print(f"  --> Loại phổ biến nhất: {most[0]} | số lượng: {most[1]}")
+    print(f"  --> Loại ít phổ biến nhất: {least[0]} | số lượng: {least[1]}")
+
 
     print("\nLoại sữa đã bán:")
     for name,count in milkCounter.items():
         print(f"- {name}: {count}")
     most = milkCounter.most_common(1)[0]
     least = min(milkCounter.items(), key=lambda x: x[1])
-    print(f"  -->Loại phổ biến nhất: {most[0]} | số lượng: {most[1]}")
-    print(f"  -->Loại ít phổ biến nhất: {least[0]} | số lượng: {least[1]}")
+    print(f"  --> Loại phổ biến nhất: {most[0]} | số lượng: {most[1]}")
+    print(f"  --> Loại ít phổ biến nhất: {least[0]} | số lượng: {least[1]}")
+
 
     print("\nLượng đường đã bán:")
     for name,count in sugarCounter.items():
         print(f"- {name}: {count}")
 
+
     print("\nLượng đá đã bán:")
     for name,count in iceCounter.items():
         print(f"- {name}: {count}")
+
 
     print("\nLoại topping đã bán:")
     for name,count in toppingCounter.items():
         print(f"- {name}: {count}")
     most = toppingCounter.most_common(1)[0]
     least = min(toppingCounter.items(), key=lambda x: x[1])
-    print(f"  -->Loại phổ biến nhất: {most[0]} | số lượng: {most[1]}")
-    print(f"  -->Loại ít phổ biến nhất: {least[0]} | số lượng: {least[1]}")
+    print(f"  --> Loại phổ biến nhất: {most[0]} | số lượng: {most[1]}")
+    print(f"  --> Loại ít phổ biến nhất: {least[0]} | số lượng: {least[1]}")
 
 
 def main():
@@ -255,6 +259,7 @@ def main():
         if conitinueOrder.lower() == 'y':
             pass
         else:
+            print(f"Mã đơn hàng {orderID}")
             salesData.append({"orderID": orderID, "data": orderList})
             saveData(dataSaveFile,salesData)
             break
