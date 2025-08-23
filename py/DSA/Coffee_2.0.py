@@ -1,3 +1,4 @@
+#code by hluan(@luaniikvi) - 24162069
 import json
 from collections import Counter
 
@@ -18,8 +19,7 @@ def LoadSalesData(filename):
         return []
 
 salesData = LoadSalesData("data.json")
-if salesData != [] : orderID = salesData[-1]["orderID"] + 1
-else : orderID = 1
+orderID = 1 if salesData == [] else salesData[-1]["orderID"] + 1
 
 def GetCustomerChoice():
     print("Chọn kích thước cà phê:")
@@ -27,6 +27,7 @@ def GetCustomerChoice():
         print(f"{i+1}. {option}")
     sizeChoice = int(input("Choose a size(1-2): ")) - 1
     while sizeChoice < 0 or sizeChoice > 1:
+        print("Lựa chọn không hợp lệ")
         sizeChoice = int(input("Choose a size(1-2): ")) - 1
 
 
@@ -35,6 +36,7 @@ def GetCustomerChoice():
         print(f"{i+1}. {option}")
     coffeTypeChoice = int(input("Choose type(1-3): ")) - 1
     while coffeTypeChoice < 0 or coffeTypeChoice > 2:
+        print("Lựa chọn không hợp lệ")
         coffeTypeChoice = int(input("Choose type(1-3): ")) - 1
 
 
@@ -43,6 +45,7 @@ def GetCustomerChoice():
         print(f"{i+1}. {option}")
     milkChoice = int(input("Choose milk(1-3): ")) - 1
     while  milkChoice < 0 or milkChoice > 2:
+        print("Lựa chọn không hợp lệ")
         milkChoice = int(input("Choose milk(1-3): ")) - 1
 
 
@@ -52,10 +55,10 @@ def GetCustomerChoice():
     toppingChoice = input("Nhập lựa chọn của bạn, ngăn cách bởi dấu phẩy (VD: 1,3,5): ").split(",")
     toppingChoice = [int(i) for i in toppingChoice]
 
-    while len(toppingChoice) > 3 or all(n <= 0 for n in toppingChoice):
+    while len(toppingChoice) > 3 or not(all(n > 0 for n in toppingChoice)):
+        print("Lựa chọn không hợp lệ")
         toppingChoice = input("Nhập lựa chọn của bạn, ngăn cách bởi dấu phẩy (VD: 1,3,5): ").split(",")
         toppingChoice = [int(i) for i in toppingChoice]
-
     toppingChoice = [toppingOptions[i-1] for i in toppingChoice]
 
     return {

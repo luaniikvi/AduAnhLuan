@@ -1,0 +1,133 @@
+[
+    {
+        "orderID": 1,
+        "data": [
+            {
+                "size": "700ml",
+                "tea": "Hồng trà",
+                "milk": "Sữa tươi",
+                "sugar": "0%",
+                "ice": "Vừa",
+                "topping": [
+                    "Trân châu đen",
+                    "Pudding trứng",
+                    "Kem cheese"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 2,
+        "data": [
+            {
+                "size": "500ml",
+                "tea": "Ô long",
+                "milk": "Sữa yến mạch",
+                "sugar": "50%",
+                "ice": "Nhiều đá",
+                "topping": [
+                    "Trân châu đen",
+                    "Trân châu trắng"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 3,
+        "data": [
+            {
+                "size": "500ml",
+                "tea": "Hồng trà",
+                "milk": "Sữa hạnh nhân",
+                "sugar": "0%",
+                "ice": "Không đá",
+                "topping": [
+                    "Trân châu đen",
+                    "Thạch trái cây",
+                    "Pudding trứng"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 4,
+        "data": [
+            {
+                "size": "700ml",
+                "tea": "Hồng trà",
+                "milk": "Sữa tươi",
+                "sugar": "0%",
+                "ice": "Không đá",
+                "topping": [
+                    "Trân châu đen"
+                ]
+            },
+            {
+                "size": "700ml",
+                "tea": "Hồng trà",
+                "milk": "Sữa tươi",
+                "sugar": "30%",
+                "ice": "Vừa",
+                "topping": [
+                    "Thạch trái cây",
+                    "Thạch cà phê"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 5,
+        "data": [
+            {
+                "size": "700ml",
+                "tea": "Hồng trà",
+                "milk": "Sữa tươi",
+                "sugar": "0%",
+                "ice": "Không đá",
+                "topping": [
+                    "Trân châu đen"
+                ]
+            },
+            {
+                "size": "700ml",
+                "tea": "Hồng trà",
+                "milk": "Sữa tươi",
+                "sugar": "0%",
+                "ice": "Không đá",
+                "topping": [
+                    "Trân châu đen"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 6,
+        "data": [
+            {
+                "size": "500ml",
+                "tea": "Lục trà",
+                "milk": "Sữa hạnh nhân",
+                "sugar": "30%",
+                "ice": "Ít đá",
+                "topping": [
+                    "Trân châu trắng"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 7,
+        "data": [
+            {
+                "size": "700ml",
+                "tea": "Ô long",
+                "milk": "Sữa yến mạch",
+                "sugar": "50%",
+                "ice": "Vừa",
+                "topping": [
+                    "Thạch trái cây"
+                ]
+            }
+        ]
+    }
+]

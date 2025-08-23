@@ -7,9 +7,34 @@
                 "coffeType": "Espresso",
                 "milk": "Fresh milk",
                 "topping": [
-                    "Whipped cream"
+                    "Whipped cream",
+                    "Caramel",
+                    "Chocolate"
                 ]
             }
         ]
+    },
+    {
+        "orderID": 2,
+        "data": []
+    },
+    {
+        "orderID": 3,
+        "data": [
+            {
+                "size": "Lớn (500ml)",
+                "coffeType": "Espresso",
+                "milk": "Oat milk",
+                "topping": [
+                    "Whipped cream",
+                    "Chocolate",
+                    "Caramel"
+                ]
+            }
+        ]
+    },
+    {
+        "orderID": 4,
+        "data": []
     }
 ]
