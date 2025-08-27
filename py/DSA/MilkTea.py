@@ -13,7 +13,7 @@ def loadData(filename):
     except:
         return []
 
-size    = ["700ml", "500ml"]
+size    = ['700ml', '500ml']
 tea     = ['Hồng trà', 'Lục trà', 'Ô long']
 milk    = ['Sữa tươi', 'Sữa hạnh nhân', 'Sữa yến mạch']
 sugar   = ['0%', '30%', '50%', '70%', '100%']
@@ -166,6 +166,10 @@ def editOrder(order):
     return order
 
 
+def showRecord():
+    pass
+
+
 def summary():
     teaCounter       = Counter()
     milkCounter      = Counter()
@@ -269,7 +273,8 @@ def main():
             break
 
     #Tổng kết Order
-    #summary()
+    showRecord()
+    summary()
 
 
 
