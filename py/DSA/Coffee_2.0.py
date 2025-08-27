@@ -120,8 +120,9 @@ def main():
 
         continueOrder = input("Tiếp tục đặt hàng? (y/n): ")
         if continueOrder.lower() != 'y':
-            print(f"Mã đơn hàng: {orderID}")
-            RecordChoice(customerOrderList, salesData)
+            if customerOrderList != []:
+                print(f"Mã đơn hàng: {orderID}")
+                RecordChoice(customerOrderList, salesData)
             SaveSalesData("data.json", salesData)
             break
 

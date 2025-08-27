@@ -16,10 +16,6 @@
     },
     {
         "orderID": 2,
-        "data": []
-    },
-    {
-        "orderID": 3,
         "data": [
             {
                 "size": "Lớn (500ml)",
@@ -34,7 +30,18 @@
         ]
     },
     {
-        "orderID": 4,
-        "data": []
+        "orderID": 3,
+        "data": [
+            {
+                "size": "Lớn (500ml)",
+                "coffeType": "Latte",
+                "milk": "Oat milk",
+                "topping": [
+                    "Whipped cream",
+                    "Caramel",
+                    "Chocolate"
+                ]
+            }
+        ]
     }
 ]
