@@ -113,10 +113,14 @@ def analyze_fillings(sales):
         print("Chưa có dữ liệu.")
         return
 
-    filling_counts = Counter(sale["data"]["filling"] for sale in sales)
+
+    filling_counts = Counter()
+    for sale in sales:
+        filling_counts[sale["data"]["filling"]] += 1
 
     most= filling_counts.most_common(1)[0]
     least = filling_counts.most_common()[-1]
+
 
 
     print(f"Loại phổ biến nhất: {most[0]} ({most[1]} lượt) : {most[1] / total_loaves * 100:.2f}%")

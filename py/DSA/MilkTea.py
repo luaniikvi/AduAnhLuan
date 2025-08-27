@@ -179,7 +179,7 @@ def summary():
 
     for order in salesData:
         for data in order["data"]:
-            teaCounter[data["tea"]] += 1
+            teaCounter[data["tea"]]        += 1
             milkCounter[data["milk"]]      += 1
             sugarCounter[data["sugar"]]    += 1
             iceCounter[data["ice"]]        += 1
