@@ -1,0 +1,1 @@
+{"name":"Local: TamGiac","url":"d:\\Project\\VS\\c++\\OOP\\TamGiac.cpp","tests":[{"id":1756646681175,"input":"0 0 0 3 4 0","output":"Tam giác vuông"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Project\\VS\\c++\\OOP\\TamGiac.cpp","group":"local","local":true}
