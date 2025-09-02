@@ -51,15 +51,25 @@ public:
         os << "Họ tên    : " << sv.hoten    << endl;
         os << "Giới tính : " << sv.gioitinh << endl;
         os << "Điểm      : " << sv.diem     << endl;
-        os <<"============================="<< endl;
+        //os <<"============================="<< endl;
         return os;
     }
 
+    void operator=(SinhVien sv){
+        this->mssv = sv.mssv;
+        this->hoten = sv.hoten;
+        this->gioitinh = sv.gioitinh;
+        this->diem = sv.diem;
+    } 
+
     // 5 điểm trở lên là pass, dưới 5 là pass away
-    bool Pass(){
-        return this->diem >= 5;
-    }
-    // Đại đại đi
+    bool Pass(){ return this->diem >= 5; }
+
+    //Lấy thông tin
+    string GetName(){ return this->hoten; }
+    string GetSex(){ return this->gioitinh; }
+    float GetMark(){ return this->diem; }
+    // Xếp loại trên điểm số
     string XepLoai();
 
     ~SinhVien(){};
@@ -84,17 +94,75 @@ string SinhVien::ChuanHoa(string str){
     return ans;
 }
 string SinhVien::XepLoai(){
-    if(diem >= 9.0) return "A+";
-    if(diem >= 8.5) return "A";
-    if(diem >= 8.0) return "B+";
-    if(diem >= 7.5) return "B";
-    if(diem >= 7.0) return "C+";
-    if(diem >= 6.5) return "C";
-    if(diem >= 5.0) return "D+";
+    if(diem >= 9.0f) return "A+";
+    if(diem >= 8.5f) return "A";
+    if(diem >= 8.0f) return "B+";
+    if(diem >= 7.5f) return "B";
+    if(diem >= 7.0f) return "C+";
+    if(diem >= 6.5f) return "C";
+    if(diem >= 5.0f) return "D+";
+    if(diem >= 4.0f) return "D";
     return "F";
 }
+void SinhVien::operator=(SinhVien sv){
+    this->mssv = sv.mssv;
+    this->hoten = sv.hoten;
+    this->gioitinh = sv.gioitinh;
+    this->diem = sv.diem;
+} 
 
-int main(){
-    SinhVien a;
-    cout << a;
+void InputSinhVienList(SinhVien list[], int size){
+    for(int i=0 ; i<size ; i++)
+    {
+        cout << "STT: " << i + 1 << endl;
+        cin >> list[i];
+    }
+}
+void PrintSinhVienList(SinhVien list[], int size)
+{
+    for(int i=0 ; i<size ; i++)
+    {
+        cout << "STT: " << i+1;
+        cout << list[i] << endl;
+    }
+}
+void PrintPass(SinhVien list[], int size){
+    cout << "Danh sách sinh viên qua môn: " << endl;
+    for(int i=0 ; i<size ; i++)
+        if(list[i].Pass()) cout << list[i] << endl;
+}
+float PassPercent(SinhVien list[], int size){
+    int passCounter = 0;
+    for(int i=0 ; i<size ; i++)
+        if(list[i].Pass()) passCounter++;
+
+    return (float)passCounter/size*100;
+}
+float AverageMark(SinhVien list[], int size){
+    float res = 0.0f;
+    for(int i=0 ; i<size ; i++)
+        res += (float)list[i].GetMark() / size;
+    return res;
+}
+SinhVien max(SinhVien a, SinhVien b){ return (a.GetMark() > b.GetMark() ? a : b); }
+SinhVien FindMaxMark(SinhVien list[], int size){
+    SinhVien maxMark = SinhVien();
+    for(int i=0 ; i<=size ; i++)
+        maxMark = max(maxMark,list[i]);
+
+    return maxMark;
+}
+string NameOfMaxMark(SinhVien list[], int size){
+    return FindMaxMark(list,size).GetName();
+}
+void FindExcellentFemale(SinhVien list[], int size){
+    bool notFound = true;
+    for(int i=0 ; i<size ; i++)
+    {
+        if(list[i].GetSex() != "nu") continue;
+        if(list[i].GetMark() < 8.0f) continue;
+        notFound = false;
+        cout << list[i] << endl;
+    }
+    if(notFound) cout << "none";
 }

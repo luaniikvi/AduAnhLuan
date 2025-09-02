@@ -3,8 +3,16 @@
 
 using namespace std;
 
+void in(int a[], int size){
+    for(int i= 0 ; i<size ; i++)
+    {
+        cin >> a[i];
+    }
+}
+
 main(){
-    double temp[] = {3.0,5.0,4.9};
-    sort(temp,temp+3);
-    for(int i=0 ; i< 3 ; i++) cout << temp[i] << " ";
+    int size = 4;
+    int temp[size];
+    in(temp,size);
+    for(int i=0 ; i< size ; i++) cout << temp[i] << " ";
 }
