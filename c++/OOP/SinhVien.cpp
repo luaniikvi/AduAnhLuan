@@ -72,7 +72,7 @@ public:
     // Xếp loại trên điểm số
     string XepLoai();
 
-    ~SinhVien(){};
+    ~SinhVien(){}; // destructure
 };
 
 string SinhVien::ChuanHoa(string str){
