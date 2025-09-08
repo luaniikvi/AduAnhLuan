@@ -55,13 +55,12 @@ public:
         if(this->mau < 0) *this = PhanSo(-tu,-mau);
     }
     //Kiểm tra số vô hạn
-    bool isInf(){return this->mau == 0;}
+    bool isInf(){ return this->mau == 0; }
     //Phân số nghịch đảo
-    PhanSo reverse(){return PhanSo(this->mau,this->tu);}
+    PhanSo reverse(){ return PhanSo(this->mau,this->tu); }
 
-    double trueValue()  {
-        return (double)tu/mau;
-    }
+    double trueValue()  { return (double)tu/mau; }
+    
     // Lấy dấu
     string getSign(){
         if(this->isInf()) return "inf";
@@ -147,7 +146,7 @@ void PhanSo::operator=(int number){
     *this = PhanSo(number);
 }
 bool PhanSo::operator==(PhanSo ps){
-    return this->tu == ps.mau && this->mau==ps.mau;
+    return this->tu == ps.tu && this->mau==ps.mau;
 }
 bool PhanSo::operator>(PhanSo ps) {
     return this->trueValue() > ps.trueValue();

@@ -116,7 +116,7 @@ void PhanSo::operator=(int number){
     *this = PhanSo(number);
 }
 bool PhanSo::operator==(PhanSo ps){
-    return this->tu == ps.mau && this->mau==ps.mau;
+    return this->tu == ps.tu && this->mau==ps.mau;
 }
 bool PhanSo::operator>(PhanSo ps) {
     return this->trueValue() > ps.trueValue();

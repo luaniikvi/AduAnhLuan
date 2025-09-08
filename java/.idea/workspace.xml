@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f87fa9be-2ad3-4092-b816-46a36efeb051" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../c++/testing and temp/moretest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../c++/testing and temp/moretest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../c++/testing and temp/moretest.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../c++/testing and temp/moretest.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py/DSA/MilkTea.py" beforeDir="false" afterPath="$PROJECT_DIR$/../py/DSA/MilkTea.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../c++/OOP/24162069_NguyenHoangLuan.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../c++/OOP/24162069_NguyenHoangLuan.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,29 +13,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="31mSjaE6XKgbz1O0a6kBt8Ol2Jz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/VS/java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/VS/java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
         <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
       </set>
     </attachedChunks>
   </component>
@@ -48,6 +49,8 @@
       <option name="presentableId" value="Default" />
       <updated>1756127891975</updated>
       <workItem from="1756127910235" duration="239000" />
+      <workItem from="1756882521702" duration="67000" />
+      <workItem from="1756882704199" duration="23000" />
     </task>
     <servers />
   </component>
