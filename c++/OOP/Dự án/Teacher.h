@@ -1,3 +1,5 @@
+// Code by nhóm 8
+
 #pragma once
 
 #ifndef TEACHER_H
@@ -15,7 +17,13 @@ protected:
 public:
     Teacher(){};
 
-    ~Teacher(){};
+    std::vector<std::string> GetID(){
+        return {this->teacherID};
+    }
+
+    void Input(){};
+    void ShowInfo(){}
+    void Edit(){};
 };
 
 #endif

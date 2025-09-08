@@ -1,3 +1,5 @@
+// Code by nhóm 8
+
 #pragma once
 
 #ifndef RESEACHER_H
@@ -15,7 +17,9 @@ protected:
 public:
     Researcher(){};
 
-    ~Researcher(){};
+    void Input(){};
+    void ShowInfo(){}
+    void Edit(){};
 };
 
 #endif

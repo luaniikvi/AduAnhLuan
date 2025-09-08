@@ -1,3 +1,5 @@
+// Code by nhóm 8
+
 #pragma once
 
 #ifndef CLUBLEADER_H
@@ -14,6 +16,10 @@ protected:
 public:
     ClubLeader(){};
     ~ClubLeader(){};
+
+    std::vector<std::string> GetID(){
+        return {this->studentID,this->teacherID};
+    }
 
     void Input(){};
     void ShowInfo(){};

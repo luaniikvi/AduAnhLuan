@@ -1,3 +1,5 @@
+// Code by nhóm 8
+
 #pragma once
 
 #ifndef STAFF_H
@@ -16,7 +18,13 @@ protected:
 public:
     Staff(){};
     
-    ~Staff(){};
+    std::vector<std::string> GetID(){
+        return {this->staffID};
+    } 
+
+    void Input(){};
+    void ShowInfo(){}
+    void Edit(){};
 };
 
 #endif

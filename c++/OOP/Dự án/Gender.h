@@ -1,3 +1,5 @@
+// Code by nhóm 8
+
 #pragma once
 
 #ifndef GENDER_H

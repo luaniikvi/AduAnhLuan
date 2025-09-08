@@ -1,3 +1,5 @@
+// Code by nhóm 8
+
 #pragma once
 
 #ifndef SCHOOLMEMBER_H
@@ -8,6 +10,7 @@
 #include "Teacher.h"
 #include "Staff.h"
 #include "Researcher.h"
+#include "ResearchAssistant.h"
 #include "TeachingAssistant.h"
 #include "AdminTeacher.h"
 #include "ClubMember.h"

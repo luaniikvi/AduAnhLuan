@@ -1,13 +1,15 @@
+// Code by nhóm 8
+
 #include <iostream>
-#include <vector>
+#include "Menu.cpp"
 #include "SchoolMember.h"
 
-using namespace std;
-
 main(){
-    //Gender g1 = Gender::Other;
-    Person *p = new ClubLeader;
+    while(true){
+        PrintMenu();
+        int option = GetOption(0,4); if(!option) break;
 
-    delete p;
-    p = nullptr;
+        Do(option);
+    }
+    return 0;
 }

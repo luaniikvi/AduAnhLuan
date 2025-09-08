@@ -2,19 +2,18 @@
 
 #pragma once
 
-#ifndef TEACHINGASSISTANT_H
-#define TEACHINGASSISTANT_H
+#ifndef RESEARCHASSISTANT_H
+#define RESEARCHASSISTANT_H
 
-#include "Student.h"
+#include "Researcher.h"
 #include "Teacher.h"
 
-// Student + Teacher
-class TeachingAssistant : public Student, public Teacher
+class ResearchAssistant : public Researcher, public Teacher
 {
-protected:
+private:
     /* data */
 public:
-    TeachingAssistant(){};
+    ResearchAssistant(){};
     std::vector<std::string> GetID(){
         return {this->studentID,this->teacherID};
     }
