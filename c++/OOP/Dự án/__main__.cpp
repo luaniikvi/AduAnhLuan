@@ -4,10 +4,10 @@
 #include "Menu.cpp"
 #include "SchoolMember.h"
 
-main(){
-    while(true){
+int main(){
+    while(true) {
         PrintMenu();
-        int option = GetOption(0,4); if(!option) break;
+        int option = GetOption(0,4); if(option == 0) break;
 
         Do(option);
     }

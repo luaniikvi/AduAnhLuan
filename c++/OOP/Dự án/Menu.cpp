@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <string>
 #include <string.h>
+#include <limits>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ vector<Person*> data;
 
 void Pause(){
     cout << "Ấn phím bất kì để tiếp tục...";
-    getch();
+    _getch();
     cout << endl;
     return;
 }
@@ -40,7 +41,7 @@ int GetOption(const int begin,const int end)
 {
     string raw;
     getline(cin,raw);
-    while(!isNumber(raw) || stoi(raw) < begin || stoi(raw) > end){
+    while(raw == "" || !isNumber(raw) || stoi(raw) < begin || stoi(raw) > end){
         cout << "--Không hợp lệ, vui lòng nhập lại--" << endl;
         cout << "-->";
         getline(cin,raw);
@@ -52,6 +53,8 @@ int Search()
 {
     string target;
     cout << "Nhập ID: "; cin >> target;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
     for(int i=0 ; i < ::data.size() ; i++)
     {
         for(string id : ::data[i]->GetID())

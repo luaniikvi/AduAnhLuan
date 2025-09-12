@@ -17,14 +17,14 @@ protected:
     short age;
     Gender gender;
 public:
-    Person(){
-        name = "none";
-    }
+    Person(){};
 
+    //interface
     virtual void Input()    = 0;
     virtual void ShowInfo() = 0;
     virtual void Edit()     = 0;
 
+    // 1 người có thể có nhiều ID như studentID,teacherID,staffID
     virtual std::vector<std::string> GetID() = 0;
 
     virtual ~Person()       = default;
