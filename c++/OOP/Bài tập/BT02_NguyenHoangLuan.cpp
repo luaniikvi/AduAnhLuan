@@ -4,14 +4,12 @@
 
 using namespace std;
 
-int _max(int a, int b){
-    return (a>b ? a : b);
-}
+int _max(int a, int b) { return (a>b ? a : b); } 
 
 class CIntArray{
 private:
-    int* array = NULL;
-    int size;
+    int* array = NULL; // Array data
+    int size;          // Array size
 public:
     // Contructor   
     CIntArray();
@@ -20,7 +18,7 @@ public:
     template<int N>
     CIntArray(const int (&array)[N]);
 
-    //Phương thức
+    // Method
 
     void input();
     void print();
@@ -41,6 +39,7 @@ public:
     // destrutor
     ~CIntArray(){
         delete[] this->array;
+        this->array = NULL;
         this->size = 0; 
     }
 };
@@ -74,9 +73,10 @@ CIntArray::CIntArray(const int* p, const int size){
 
 // Nguyễn Hoàng Luân
 template<int N>
-// Dùng &array để tránh suy biển thành -> *array
-CIntArray::CIntArray(const int (&array)[N])
-{
+// Dùng template để lấy kích thước của mảng
+// Dùng &array để tránh suy biến thành -> *array
+// cho phép tham chiếu đến cả mảng
+CIntArray::CIntArray(const int (&array)[N]){
     // Xóa mảng cũ
     if(this->array != NULL) delete[] this->array;
     //Tạo mảng mới
@@ -228,12 +228,14 @@ void CIntArray::insert(const int idx,const int val){
 int main(){
     int p[] = {1,2,3,4,5,6,7};
     CIntArray a(p);
-    cout << endl;
-    a.addElement(8);
-    cout << a.getSize() << endl;
-    a.erase(8);
+    CIntArray b = a;
+    b.print();
+    // cout << endl;
+    // a.addElement(8);
+    // cout << a.getSize() << endl;
+    // a.erase(8);
     //a.insert(8,-1);
-    a.print();
+    // a.print();
     //a = {1,2,3};
     //a.print();
     //int p[] = {1,2,3};
