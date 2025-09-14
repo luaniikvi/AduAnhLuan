@@ -1,5 +1,3 @@
-// Code by nhóm 8
-
 #include "SchoolMember.h"
 #include <iostream>
 #include <conio.h>
@@ -13,9 +11,8 @@ vector<Person*> data;
 
 void Pause(){
     cout << "Ấn phím bất kì để tiếp tục...";
-    _getch();
-    cout << endl;
-    return;
+    getch();
+    cout << "\n";
 }
 
 int PrintMenu()
@@ -29,19 +26,12 @@ int PrintMenu()
     cout << "\n-->";
     return 4;
 }
-//Kiểm tra input có hợp lệ không
-bool isNumber(const string number){
-    for(auto c : number){
-        if(!isdigit(c)) return false;
-    }
-    return true;
-}
 // tìm vị trí của ID trong data
 int GetOption(const int begin,const int end) 
 {
     string raw;
     getline(cin,raw);
-    while(raw == "" || !isNumber(raw) || stoi(raw) < begin || stoi(raw) > end){
+    while(!isNumber(raw) || stoi(raw) < begin || stoi(raw) > end){
         cout << "--Không hợp lệ, vui lòng nhập lại--" << endl;
         cout << "-->";
         getline(cin,raw);
@@ -54,8 +44,9 @@ int Search()
     string target;
     cout << "Nhập ID: "; cin >> target;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    for(int i=0 ; i < ::data.size() ; i++)
+    cout << endl;
+    
+    for(int i=0 ; i< ::data.size() ; i++)
     {
         for(string id : ::data[i]->GetID())
         {
@@ -83,11 +74,13 @@ Person* CreatePerson(int option) {
         default: return nullptr; // Trả về con trỏ null nếu lựa chọn không hợp lệ
     }
 }
+
 // thêm dữ liệu
+
 void Add()
 {
     cout << "Chọn kiểu dữ liệu muốn thêm vào:" << endl;
-    //cout << "-1. Person" << endl;
+    //cout << "0. Person" << endl;
     cout << "1. Student" << endl;
     cout << "2. Teacher" << endl;
     cout << "3. Staff" << endl;
@@ -98,23 +91,15 @@ void Add()
     cout << "8. Researcher" << endl;
     cout << "9. ResearchAssistant" << endl;
     cout << "0. Hủy" << endl;
-    cout << "-->";
 
     int option = GetOption(0,9);
-    if (!option) return;
+    Person *newData = CreatePerson(option);
 
-    Person *newData = nullptr;
-    newData = CreatePerson(option);
-
-    if(newData != nullptr){
+    if(newData != NULL)
         newData->Input();
-        ::data.push_back(newData);
-        cout << "Đã thêm thành công"<< endl;
-        return;
-    }
-    cout << "Thất bại"<< endl;
+    ::data.push_back(newData);
+    cout << "Đã thêm thành công"<< endl;
 }
-// xóa dữ liệu
 void Delete()
 {
     int pos = Search(); 
@@ -122,16 +107,16 @@ void Delete()
     ::data.erase(::data.begin()+pos , ::data.begin()+pos+1);
     cout << "Đã xóa thành công" << endl;
 }
-// sửa dữ liệu
 void Edit()
 {
     int pos = Search(); 
     if(pos == -1) return;
+    cin.ignore();
     ::data[pos]->Edit();
     cout << "Đã sửa thành công" << endl;
 }
 
-// Do what?
+
 void Do(int option){
     switch (option)
     {

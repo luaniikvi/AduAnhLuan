@@ -1,11 +1,8 @@
-// Code by nhóm 8
-
 #pragma once
 
-#ifndef GENDER_H
-#define GENDER_H
-
+#include <iostream>
 #include <string>
+#include "stringwork.h"
 
 enum struct Gender {
     Male   = 1, // Nam
@@ -14,14 +11,14 @@ enum struct Gender {
 };
 
 std::string getMsg(Gender g){
-    if(g == Gender::Male) return "Nam";
-    if(g == Gender::Female) return "Nữ";
-    return "Khác";
+    switch(g){
+        case Gender::Male:   return "Nam";
+        case Gender::Female: return "Nữ";
+        default:             return "Khác";
+    }
 }
 
-void InputGender(Gender &g)
-{
-    
+void InputGender(Gender &g) {
+    std::cout << "Giới tính (0: Khác, 1: Nam, 2: Nữ)\n";
+    g = static_cast<Gender>(assureInt("Nhập giới tính",0,2));
 }
-
-#endif

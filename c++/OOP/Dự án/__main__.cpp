@@ -1,13 +1,14 @@
-// Code by nhóm 8
-
 #include <iostream>
 #include "Menu.cpp"
+#include "stringwork.cpp"
 #include "SchoolMember.h"
 
-int main(){
-    while(true) {
+using namespace std;
+
+main(){
+    while(true){
         PrintMenu();
-        int option = GetOption(0,4); if(option == 0) break;
+        int option = GetOption(0,4); if(!option) break;
 
         Do(option);
     }

@@ -1,14 +1,41 @@
+//                       _oo0oo_
+//                      o8888888o
+//                      88" : "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \|||   :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+
+//                       `=---='
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#define faster ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define file(name) freopen(name".inp","r",stdin); freopen(name".out","w",stdout);
+
 using namespace std;
 
-int main(){
-    vector<int> a = {4,3,2,1,0};
-    int i = 0;
-    a.erase(a.begin()+ i , a.begin() + i + 1);
+int main()
+{
+    faster;
+    file("task");
 
-    for(auto n : a){
-        cout << n << " ";
-    }
+    return 0;
 }
+using namespace std;
+
+class Nv{
+    public:
+    static int luong;
+};
+
+int Nv::luong = 0;
