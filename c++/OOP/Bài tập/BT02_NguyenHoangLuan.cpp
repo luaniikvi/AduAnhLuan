@@ -227,9 +227,14 @@ void CIntArray::insert(const int idx,const int val){
 
 int main(){
     int p[] = {1,2,3,4,5,6,7};
-    CIntArray a(p);
-    CIntArray b = a;
+    CIntArray c(p);
+    CIntArray a((int[]){1,2,3,4,5,6,7});
+    CIntArray b(a);
+    a.print();
+    cout << endl;
     b.print();
+    cout << endl;
+    c.print();
     // cout << endl;
     // a.addElement(8);
     // cout << a.getSize() << endl;
