@@ -47,6 +47,7 @@ public:
 // Nguyễn Hoàng Luân
 CIntArray::CIntArray(): size(0){
     delete[] this->array;
+    this->array = NULL;
 };
 // Nguyễn Hoàng Luân
 CIntArray::CIntArray(const CIntArray& array){
@@ -171,6 +172,7 @@ CIntArray CIntArray::getEven(){
         if(array[i] %2 == 0) 
             evenSize += 1;
     }
+    if(evenSize == 0) return CIntArray();
     // Tạo mảng số chẵn
     even = new int[evenSize];
     int evenIdx = 0;
@@ -180,14 +182,19 @@ CIntArray CIntArray::getEven(){
         if(array[i] %2 == 0)
             *(even+ evenIdx++) = array[i];
     }
-
-    return CIntArray(even,evenSize);
+    CIntArray evenArr(even,evenSize);
+    delete[] even;
+    return evenArr;
 }
 
 // Nguyễn Hoàng Luân
 void CIntArray::erase(const int idx){
-    if(this->size == 0 || idx >= this->size){ 
+    if(idx <0 || idx >= this->size){ 
         cout << "\nInvalid idx\n";
+        return;
+    }
+    if(this->size == 0){ 
+        cout << "Empty array, cannot be deleted";
         return;
     }
     if(this->size == 1){
