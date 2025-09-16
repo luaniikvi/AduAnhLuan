@@ -46,12 +46,12 @@ public:
 
 // Nguyễn Hoàng Luân
 CIntArray::CIntArray(): size(0){
-    if(this->array != NULL) delete[] this->array;
+    delete[] this->array;
 };
 // Nguyễn Hoàng Luân
 CIntArray::CIntArray(const CIntArray& array){
     // Xóa mảng cũ
-    if(this->array != NULL) delete[] this->array;
+    delete[] this->array;
     // Copy
     this->size = array.size;
     this->array = new int[this->size];
@@ -62,7 +62,7 @@ CIntArray::CIntArray(const CIntArray& array){
 // Nguyễn Hoàng Luân
 CIntArray::CIntArray(const int* p, const int size){
     // Xóa mảng cũ
-    if(this->array != NULL) delete[] this->array;
+    delete[] this->array;
     // Copy
     this->size = size;
     this->array = new int[size];
@@ -78,7 +78,7 @@ template<int N>
 // cho phép tham chiếu đến cả mảng
 CIntArray::CIntArray(const int (&array)[N]){
     // Xóa mảng cũ
-    if(this->array != NULL) delete[] this->array;
+    delete[] this->array;
     //Tạo mảng mới
     this->size = N;
     this->array = new int[this->size];
@@ -190,7 +190,12 @@ void CIntArray::erase(const int idx){
         cout << "\nInvalid idx\n";
         return;
     }
-
+    if(this->size == 1){
+        delete[] this->array;
+        this->array = NULL;
+        this->size = 0;
+        return;
+    }
     int* newArray = new int[this->size - 1];
     int newArrayIdx = 0;
 
@@ -226,15 +231,16 @@ void CIntArray::insert(const int idx,const int val){
 }
 
 int main(){
-    int p[] = {1,2,3,4,5,6,7};
-    CIntArray c(p);
-    CIntArray a((int[]){1,2,3,4,5,6,7});
-    CIntArray b(a);
+    // int p[] = {1,2,3,4,5,6,7};
+    // CIntArray c(p);
+    CIntArray a((int[]){1});
+    // CIntArray b(a);
+    a.erase(0);
     a.print();
     cout << endl;
-    b.print();
-    cout << endl;
-    c.print();
+    // b.print();
+    // cout << endl;
+    // c.print();
     // cout << endl;
     // a.addElement(8);
     // cout << a.getSize() << endl;
