@@ -140,6 +140,10 @@ void CIntArray::addElement(const int *p, const int n){
 
 // Nguyễn Hoàng Luân
 int CIntArray::getElement(const int idx) const{
+    if(idx <0 || idx >= this->size){ 
+        cout << "\nInvalid idx\n";
+        return int();
+    }
     return *(this->array + idx);
 }
 // Nguyễn Hoàng Luân
@@ -242,8 +246,9 @@ int main(){
     // CIntArray c(p);
     CIntArray a((int[]){1});
     // CIntArray b(a);
-    a.erase(0);
-    a.print();
+    //a.erase(0);
+    //a.print();
+    cout << a.getElement(1);
     cout << endl;
     // b.print();
     // cout << endl;
